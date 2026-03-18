@@ -36,10 +36,11 @@ function initTyped() {
 
   new Typed('#typed-text', {
     strings: [
+      'Web Developer &amp; Designer',
       'Real Estate Data Analyst',
       'Business &amp; Product Analyst',
-      'Freelancer',
-      'Content Writer',
+      'Creative Freelancer',
+      'Professional Content Writer',
       'Graphics Designer',
       'Soundtrack Producer'
     ],
