@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs grep:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(py --version)",
+      "Bash(where.exe powershell:*)",
+      "Bash(where.exe node:*)",
+      "Read(//c/Users/Victo/AppData/Roaming/**)",
+      "Bash(dotnet --version)",
+      "Bash(dotnet tool:*)",
+      "Bash(npx --version)",
+      "Bash(where.exe npx:*)",
+      "Read(//c/Program Files/nodejs//**)",
+      "Read(//c/Program Files \\(x86\\)/**)",
+      "Bash(cmd.exe /c \"for %i in \\(\"\"C:\\\\Program Files \\(x86\\)\\\\nodejs\\\\node.exe\"\"\\) do echo %~si\")",
+      "Bash(ls '/c/Program Files \\(x86\\)/nodejs/node_modules/npx/')",
+      "Bash(ls '/c/Program Files \\(x86\\)/nodejs/node_modules/.bin/')",
+      "Bash(\"/c/Program Files \\(x86\\)/nodejs/node.exe\" --version)",
+      "Bash(\"/c/Program Files \\(x86\\)/nodejs/npx\" --version)",
+      "Bash(ls -la \"/c/Program Files \\(x86\\)/nodejs/node.exe\")",
+      "Bash(ls -la \"/c/Program Files \\(x86\\)/nodejs/\")",
+      "Bash(ls '/c/Program Files \\(x86\\)/')",
+      "Bash(\"/c/Program Files/nodejs/node.exe\" --version)",
+      "Bash(\"/c/Program Files/nodejs/npx.cmd\" --version)",
+      "Bash(\"/c/Program Files/nodejs/npx.cmd\" live-server --version)",
+      "Bash(\"/c/Program Files/nodejs/node.exe\" \"/c/Program Files/nodejs/node_modules/npm/bin/npx-cli.js\" live-server --version)",
+      "Bash(PATH=\"/c/Program Files/nodejs:$PATH\" node --version)",
+      "Bash(PATH=\"/c/Program Files/nodejs:$PATH\" npm install -g live-server)"
+    ]
+  }
+}
