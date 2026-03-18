@@ -3,6 +3,7 @@
  * main.js — Pure vanilla JS, no jQuery, no Bootstrap
  *
  * Sections:
+ *  0. Smoke Background
  *  1. EmailJS Init
  *  2. Typed.js Hero Animation
  *  3. Navbar Scroll Effect
@@ -17,6 +18,75 @@
  * 12. Footer Year
  * 13. Init
  */
+
+/* ----------------------------------------------------------------
+   0. Smoke / Fog Background
+   ---------------------------------------------------------------- */
+function initSmokeBackground() {
+  const canvas = document.getElementById('smoke-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let W, H, particles;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function createParticle() {
+    return {
+      x:     Math.random() * W,
+      y:     H + Math.random() * 60,
+      vx:    (Math.random() - 0.5) * 0.4,
+      vy:    -(Math.random() * 0.5 + 0.2),
+      life:  0.6 + Math.random() * 0.4,
+      decay: 0.0018 + Math.random() * 0.0022,
+      size:  60 + Math.random() * 80,
+      drift: Math.random() * Math.PI * 2
+    };
+  }
+
+  function init() {
+    resize();
+    particles = Array.from({ length: 90 }, () => {
+      const p = createParticle();
+      // spread them across the full height on first load
+      p.y = Math.random() * H;
+      p.life = Math.random() * 0.6;
+      return p;
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      p.drift += 0.008;
+      p.x  += p.vx + Math.sin(p.drift) * 0.3;
+      p.y  += p.vy;
+      p.life -= p.decay;
+      p.size += 0.25;
+
+      if (p.life <= 0 || p.y < -p.size) {
+        Object.assign(p, createParticle());
+      }
+
+      const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
+      g.addColorStop(0, `rgba(22,163,74,${p.life * 0.07})`);
+      g.addColorStop(0.5, `rgba(34,197,94,${p.life * 0.04})`);
+      g.addColorStop(1, 'rgba(34,197,94,0)');
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', () => { resize(); });
+  init();
+  draw();
+}
 
 /* ----------------------------------------------------------------
    1. EmailJS Init
@@ -397,6 +467,7 @@ function initFooterYear() {
    13. Init — Run everything on DOMContentLoaded
    ---------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
+  initSmokeBackground();
   initEmailJS();
   initTyped();
   initNavbarScroll();
