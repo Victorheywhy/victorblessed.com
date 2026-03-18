@@ -478,8 +478,16 @@ button {
   overflow: hidden;
   background-image: url('../img/Victor/desktop_image.jpg');
   background-size: cover;
-  background-position: center top;
-  background-attachment: fixed;
+  background-position: center center;
+  background-attachment: scroll;
+}
+
+/* Only use parallax fixed on real desktop/mouse devices */
+@media (hover: hover) and (pointer: fine) {
+  .hero {
+    background-attachment: fixed;
+    background-position: center top;
+  }
 }
 
 .hero-overlay {
@@ -1348,7 +1356,6 @@ button {
 
   /* Hero */
   .hero {
-    background-attachment: scroll;
     background-position: center center;
   }
 
@@ -1429,17 +1436,7 @@ button {
 }
 
 /* ----------------------------------------------------------------
-   22. Touch Devices — Fix iOS background-attachment: fixed bug
-   ---------------------------------------------------------------- */
-@media (hover: none) {
-  .hero {
-    background-attachment: scroll;
-    background-position: center center;
-  }
-}
-
-/* ----------------------------------------------------------------
-   23. Utility — Reduced Motion
+   22. Utility — Reduced Motion
    ---------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
