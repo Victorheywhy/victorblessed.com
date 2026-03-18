@@ -1349,6 +1349,7 @@ button {
   /* Hero */
   .hero {
     background-attachment: scroll;
+    background-position: center center;
   }
 
   .hero-name {
@@ -1428,7 +1429,17 @@ button {
 }
 
 /* ----------------------------------------------------------------
-   22. Utility — Reduced Motion
+   22. Touch Devices — Fix iOS background-attachment: fixed bug
+   ---------------------------------------------------------------- */
+@media (hover: none) {
+  .hero {
+    background-attachment: scroll;
+    background-position: center center;
+  }
+}
+
+/* ----------------------------------------------------------------
+   23. Utility — Reduced Motion
    ---------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
