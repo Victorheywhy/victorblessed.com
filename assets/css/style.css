@@ -305,6 +305,7 @@ button {
   color: #fff;
   letter-spacing: -0.02em;
   line-height: 1;
+  text-transform: none;
 }
 
 .nav-logo .logo-top .v {
@@ -327,6 +328,7 @@ button {
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 0.04em;
   line-height: 1;
+  text-transform: none;
 }
 
 .nav-logo .logo-bottom .b {
@@ -608,7 +610,6 @@ button {
 .about-img-frame {
   position: relative;
   border-radius: calc(var(--radius) * 1.5);
-  overflow: hidden;
   border: 2px solid var(--border-accent);
   box-shadow: 0 0 40px var(--accent-glow), 0 0 0 1px var(--border);
 }
@@ -626,7 +627,7 @@ button {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.6s ease;
 }
 
