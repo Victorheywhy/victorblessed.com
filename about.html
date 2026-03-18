@@ -139,10 +139,10 @@
               </div>
             </div>
 
-            <a href="assets/Resume-Victor.pdf" class="btn btn-primary" download>
+            <button class="btn btn-primary" onclick="openCvModal()">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Download CV
-            </a>
+            </button>
           </div>
         </div>
 
@@ -198,6 +198,24 @@
 
   </main>
 
+  <!-- ========================= CV MODAL ========================= -->
+  <div id="cv-modal" class="cv-modal-overlay" onclick="closeCvModal(event)" aria-modal="true" role="dialog" aria-label="CV Download Password">
+    <div class="cv-modal-box">
+      <button class="cv-modal-close" onclick="closeCvModal()" aria-label="Close">&times;</button>
+      <div class="cv-modal-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      </div>
+      <h3 class="cv-modal-title">Protected Download</h3>
+      <p class="cv-modal-sub">Enter the password to download my CV.</p>
+      <input id="cv-password" class="cv-modal-input" type="password" placeholder="Enter password" onkeydown="if(event.key==='Enter')checkCvPassword()" autocomplete="off" />
+      <p id="cv-error" class="cv-modal-error" aria-live="polite"></p>
+      <button class="btn btn-primary cv-modal-btn" onclick="checkCvPassword()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download
+      </button>
+    </div>
+  </div>
+
   <!-- ========================= FOOTER ========================= -->
   <footer class="footer">
     <div class="container">
@@ -216,6 +234,37 @@
 
   <!-- Main JS -->
   <script src="assets/js/main.js"></script>
+  <script>
+    function openCvModal() {
+      document.getElementById('cv-modal').classList.add('active');
+      setTimeout(() => document.getElementById('cv-password').focus(), 100);
+    }
+    function closeCvModal(e) {
+      if (!e || e.target === document.getElementById('cv-modal')) {
+        document.getElementById('cv-modal').classList.remove('active');
+        document.getElementById('cv-password').value = '';
+        document.getElementById('cv-error').textContent = '';
+      }
+    }
+    function checkCvPassword() {
+      const val = document.getElementById('cv-password').value;
+      const err = document.getElementById('cv-error');
+      if (val === '12345678') {
+        const a = document.createElement('a');
+        a.href = 'assets/Resume-Victor.pdf';
+        a.download = 'Victor-Ajibade-CV.pdf';
+        a.click();
+        closeCvModal();
+      } else {
+        err.textContent = 'Incorrect password. Please try again.';
+        document.getElementById('cv-password').value = '';
+        document.getElementById('cv-password').focus();
+      }
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeCvModal();
+    });
+  </script>
 
 </body>
 </html>
