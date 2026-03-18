@@ -369,7 +369,7 @@ function initContactForm() {
     }
 
     try {
-      await emailjs.send('service_4vdnr5h', 'template_nkwkxss', params);
+      await emailjs.send('service_ks9g0yn', 'template_nkwkxss', params);
       showMsg(successEl);
       form.reset();
     } catch (err) {
