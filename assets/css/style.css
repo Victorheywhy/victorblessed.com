@@ -1040,6 +1040,16 @@ button {
   color: var(--text);
 }
 
+.timeline-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.82rem;
+}
+
+.timeline-link:hover {
+  text-decoration: underline;
+}
+
 /* ----------------------------------------------------------------
    15. Services Section
    ---------------------------------------------------------------- */
