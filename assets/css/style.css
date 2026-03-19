@@ -504,6 +504,18 @@ button {
   }
 }
 
+/* Mobile: swap to portrait image, lighter overlay so photo is visible */
+@media (max-width: 768px) {
+  .hero {
+    background-image: url('../img/mobile_image.png');
+    background-position: center top;
+    background-size: cover;
+  }
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.55);
+  }
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
