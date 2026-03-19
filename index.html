@@ -14,6 +14,25 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+
+  <!-- ========================= INTRO SPLASH ========================= -->
+  <div id="intro-overlay">
+    <div class="intro-panel intro-panel--top"></div>
+    <div class="intro-panel intro-panel--bottom"></div>
+    <div class="intro-content">
+      <div class="intro-logo">
+        <div class="intro-logo-top"><span class="intro-v">V</span>ictor</div>
+        <div class="intro-logo-bar"></div>
+        <div class="intro-logo-bottom"><span class="intro-b">B</span>lessed</div>
+      </div>
+      <p class="intro-tagline">Designer &nbsp;·&nbsp; Developer &nbsp;·&nbsp; Analyst</p>
+      <button class="intro-enter-btn" id="intro-enter-btn" onclick="enterPortfolio()">
+        <span>Enter Portfolio</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+  </div>
+
   <canvas id="smoke-canvas"></canvas>
 
   <!-- ========================= NAVBAR ========================= -->
@@ -118,6 +137,22 @@
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
   <!-- Main JS -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    function enterPortfolio() {
+      const overlay = document.getElementById('intro-overlay');
+      overlay.classList.add('reveal');
+      setTimeout(() => overlay.classList.add('hidden'), 950);
+    }
+    // Skip intro if already visited in this session
+    if (sessionStorage.getItem('introSeen')) {
+      const overlay = document.getElementById('intro-overlay');
+      overlay.style.display = 'none';
+    }
+    document.getElementById('intro-overlay').addEventListener('transitionend', function() {
+      sessionStorage.setItem('introSeen', '1');
+    }, { once: true });
+  </script>
 
 </body>
 </html>
