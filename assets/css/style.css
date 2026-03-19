@@ -876,6 +876,79 @@ button {
   flex-shrink: 0;
 }
 
+/* Certifications */
+.resume-certifications {
+  margin-top: 4rem;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.cert-card {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.75rem;
+  align-items: flex-start;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 32px var(--accent-glow), 0 0 0 1px var(--border-accent);
+}
+
+.cert-badge {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(0, 200, 100, 0.1);
+  border: 1.5px solid var(--border-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+.cert-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.cert-year {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cert-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.cert-issuer {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin: 0;
+}
+
+.cert-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0.4rem 0 0;
+}
+
 /* Timeline */
 .timeline {
   position: relative;
@@ -946,6 +1019,25 @@ button {
   font-size: 0.82rem;
   color: var(--text-dim);
   line-height: 1.6;
+}
+
+.timeline-list {
+  margin: 0.6rem 0 0 1rem;
+  padding: 0;
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.timeline-list li {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.timeline-list li strong {
+  color: var(--text);
 }
 
 /* ----------------------------------------------------------------
@@ -1346,6 +1438,10 @@ button {
   .resume-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
   }
 
   .about-grid {
