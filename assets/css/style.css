@@ -9,17 +9,17 @@
    ---------------------------------------------------------------- */
 :root {
   /* Colors */
-  --bg:            #111827;
+  --bg:            #1c1c1c;
   --bg-card:       rgba(255, 255, 255, 0.05);
-  --bg-card-hover: rgba(255, 255, 255, 0.10);
-  --accent:        #E2E8F0;
-  --accent-dark:   #CBD5E1;
-  --accent-glow:   rgba(226, 232, 240, 0.15);
-  --text:          #ffffff;
-  --text-muted:    rgba(255, 255, 255, 0.60);
-  --text-dim:      rgba(255, 255, 255, 0.35);
-  --border:        rgba(255, 255, 255, 0.10);
-  --border-accent: rgba(226, 232, 240, 0.30);
+  --bg-card-hover: rgba(255, 255, 255, 0.09);
+  --accent:        #D4AF37;
+  --accent-dark:   #b8941e;
+  --accent-glow:   rgba(212, 175, 55, 0.18);
+  --text:          #f0ece0;
+  --text-muted:    rgba(240, 236, 224, 0.60);
+  --text-dim:      rgba(240, 236, 224, 0.35);
+  --border:        rgba(212, 175, 55, 0.12);
+  --border-accent: rgba(212, 175, 55, 0.35);
 
   /* Typography */
   --font-heading: 'Space Grotesk', sans-serif;
@@ -478,10 +478,12 @@ button {
   justify-content: center;
   text-align: center;
   overflow: hidden;
+  background-color: var(--bg);
   background-image: url('../img/Victor/desktop_image.jpg');
   background-size: cover;
   background-position: center center;
   background-attachment: scroll;
+  background-blend-mode: luminosity;
 }
 
 /* Only use parallax fixed on real desktop/mouse devices */
@@ -492,22 +494,23 @@ button {
   }
 }
 
-/* Mobile: swap to portrait image, lighter overlay so photo is visible */
+/* Mobile: swap to portrait image, blend black bg into page bg */
 @media (max-width: 768px) {
   .hero {
     background-image: url('../img/mobile_image.png');
     background-position: center top;
     background-size: cover;
+    background-blend-mode: screen;
   }
   .hero-overlay {
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(28, 28, 28, 0.45);
   }
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.78);
+  background: rgba(28, 28, 28, 0.65);
   z-index: 1;
 }
 
@@ -517,8 +520,8 @@ button {
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(24, 210, 110, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 30% at 80% 80%, rgba(24, 210, 110, 0.04) 0%, transparent 60%);
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(212, 175, 55, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 80% 80%, rgba(212, 175, 55, 0.04) 0%, transparent 60%);
   z-index: 2;
   pointer-events: none;
 }
@@ -548,10 +551,26 @@ button {
   font-family: var(--font-heading);
   font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 800;
-  color: var(--text);
   line-height: 1.05;
   letter-spacing: -0.02em;
-  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(
+    90deg,
+    #f0ece0 0%,
+    #D4AF37 30%,
+    #fff8dc 50%,
+    #D4AF37 70%,
+    #f0ece0 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: heroShimmer 4s linear infinite;
+}
+
+@keyframes heroShimmer {
+  from { background-position: 250% center; }
+  to   { background-position: -250% center; }
 }
 
 .hero-subtitle {
@@ -1577,7 +1596,7 @@ button {
   left: 0;
   right: 0;
   height: 50%;
-  background: #060a06;
+  background: #111111;
   transition: transform 0.9s cubic-bezier(0.77, 0, 0.18, 1);
 }
 
@@ -1634,13 +1653,13 @@ button {
 }
 
 .intro-v {
-  color: #22c55e;
+  color: #D4AF37;
 }
 
 .intro-logo-bar {
   width: 60%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #22c55e, transparent);
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
   margin: 6px auto;
   animation: introBarGrow 0.6s ease 0.7s both;
   transform-origin: center;
@@ -1663,7 +1682,7 @@ button {
 }
 
 .intro-b {
-  color: #22c55e;
+  color: #D4AF37;
 }
 
 .intro-tagline {
@@ -1681,8 +1700,8 @@ button {
   gap: 0.6rem;
   padding: 0.85rem 2.2rem;
   background: transparent;
-  border: 1px solid rgba(34,197,94,0.5);
-  color: #22c55e;
+  border: 1px solid rgba(212,175,55,0.5);
+  color: #D4AF37;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
@@ -1694,9 +1713,9 @@ button {
 }
 
 .intro-enter-btn:hover {
-  background: #22c55e;
-  border-color: #22c55e;
-  color: #060a06;
+  background: #D4AF37;
+  border-color: #D4AF37;
+  color: #1c1c1c;
   transform: translateY(-2px);
 }
 
