@@ -548,11 +548,12 @@ button {
 }
 
 .hero-name {
-  font-family: var(--font-heading);
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-family: 'Merriweather', serif;
+  font-style: italic;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
   background: linear-gradient(
     90deg,
     #f0ece0 0%,
@@ -1870,4 +1871,45 @@ button {
   width: 100%;
   justify-content: center;
   margin-top: 0.25rem;
+}
+
+/* ----------------------------------------------------------------
+   Text Shimmer Effect
+   ---------------------------------------------------------------- */
+@keyframes text-shimmer {
+  0%   { background-position: 150% center; }
+  100% { background-position: -150% center; }
+}
+
+.shimmer-text {
+  background-image: linear-gradient(
+    120deg,
+    var(--text, #fff) 0%,
+    var(--text, #fff) 35%,
+    rgba(255, 255, 255, 0.95) 50%,
+    var(--text, #fff) 65%,
+    var(--text, #fff) 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 4s ease-in-out infinite;
+}
+
+/* Shimmer for accent-coloured elements (logo V, B) */
+.shimmer-accent {
+  background-image: linear-gradient(
+    120deg,
+    var(--accent) 0%,
+    var(--accent) 30%,
+    #fff 50%,
+    var(--accent) 70%,
+    var(--accent) 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 4s ease-in-out infinite;
 }
