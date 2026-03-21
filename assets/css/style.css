@@ -1655,6 +1655,7 @@ button {
 
 .intro-v {
   color: #D4AF37;
+  -webkit-text-fill-color: #D4AF37;
 }
 
 .intro-logo-bar {
@@ -1684,6 +1685,7 @@ button {
 
 .intro-b {
   color: #D4AF37;
+  -webkit-text-fill-color: #D4AF37;
 }
 
 .intro-tagline {
@@ -1912,4 +1914,13 @@ button {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: text-shimmer 4s ease-in-out infinite;
+}
+
+/* Force gold on V and B inside shimmer elements */
+.shimmer-text .v,
+.shimmer-text .b,
+.shimmer-text .intro-v,
+.shimmer-text .intro-b {
+  -webkit-text-fill-color: #D4AF37;
+  color: #D4AF37;
 }
