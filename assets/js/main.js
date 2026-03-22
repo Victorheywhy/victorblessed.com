@@ -3,8 +3,7 @@
  * main.js — Pure vanilla JS, no jQuery, no Bootstrap
  *
  * Sections:
- *  0. Smoke Background
- *  1. EmailJS Init
+ *  0. EmailJS Init
  *  2. Typed.js Hero Animation
  *  3. Navbar Scroll Effect
  *  4. Mobile Menu (Hamburger)
@@ -42,7 +41,7 @@ function initTyped() {
       'Business &amp; Product Analyst',
       'Creative Freelancer',
       'Professional Content Writer',
-      'Graphics Designer',
+      'Graphic Designer',
       'Soundtrack Producer'
     ],
     typeSpeed:    55,
