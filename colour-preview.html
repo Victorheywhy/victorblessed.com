@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Colour Samples</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700;1,900&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #111; font-family: 'Space Grotesk', sans-serif; padding: 40px 20px; }
+    h1 { color: #fff; text-align: center; margin-bottom: 40px; font-size: 1.4rem; letter-spacing: 0.1em; opacity: 0.6; }
+
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+
+    .card {
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 28px 24px;
+      border: 1px solid rgba(255,255,255,0.07);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      opacity: 0.12;
+      filter: blur(40px);
+    }
+
+    .option-num { font-size: 0.7rem; letter-spacing: 0.15em; opacity: 0.4; color: #fff; margin-bottom: 14px; }
+
+    .logo { font-family: 'Playfair Display', serif; font-style: italic; margin-bottom: 16px; }
+    .logo .top { font-size: 2rem; font-weight: 900; color: #fff; }
+    .logo .bar { height: 1.5px; width: 55%; margin: 4px 0 3px; border-radius: 2px; }
+    .logo .bottom { font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.5); }
+
+    .name { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.5rem; color: #fff; font-weight: 700; margin-bottom: 8px; }
+    .tag { display: inline-block; font-size: 0.65rem; letter-spacing: 0.12em; padding: 3px 10px; border-radius: 20px; border: 1px solid; margin-bottom: 14px; }
+    .btn { display: inline-block; padding: 8px 20px; border-radius: 30px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; margin-right: 8px; cursor: pointer; }
+    .btn-solid { color: #111; }
+    .btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+
+    .colour-name { font-size: 0.7rem; letter-spacing: 0.1em; opacity: 0.5; color: #fff; margin-top: 16px; }
+
+    /* ---- Colour 1: Electric Blue ---- */
+    .c1 .v, .c1 .b { color: #38BDF8; }
+    .c1 .bar { background: linear-gradient(90deg, transparent, #38BDF8); }
+    .c1 .tag { color: #38BDF8; border-color: rgba(56,189,248,0.4); background: rgba(56,189,248,0.08); }
+    .c1 .btn-solid { background: #38BDF8; }
+    .c1::before { background: #38BDF8; }
+
+    /* ---- Colour 2: Deep Purple ---- */
+    .c2 .v, .c2 .b { color: #A855F7; }
+    .c2 .bar { background: linear-gradient(90deg, transparent, #A855F7); }
+    .c2 .tag { color: #A855F7; border-color: rgba(168,85,247,0.4); background: rgba(168,85,247,0.08); }
+    .c2 .btn-solid { background: #A855F7; }
+    .c2::before { background: #A855F7; }
+
+    /* ---- Colour 3: Rose/Pink ---- */
+    .c3 .v, .c3 .b { color: #FB7185; }
+    .c3 .bar { background: linear-gradient(90deg, transparent, #FB7185); }
+    .c3 .tag { color: #FB7185; border-color: rgba(251,113,133,0.4); background: rgba(251,113,133,0.08); }
+    .c3 .btn-solid { background: #FB7185; }
+    .c3::before { background: #FB7185; }
+
+    /* ---- Colour 4: Warm Amber ---- */
+    .c4 .v, .c4 .b { color: #F59E0B; }
+    .c4 .bar { background: linear-gradient(90deg, transparent, #F59E0B); }
+    .c4 .tag { color: #F59E0B; border-color: rgba(245,158,11,0.4); background: rgba(245,158,11,0.08); }
+    .c4 .btn-solid { background: #F59E0B; }
+    .c4::before { background: #F59E0B; }
+
+    /* ---- Colour 5: Mint/Teal ---- */
+    .c5 .v, .c5 .b { color: #2DD4BF; }
+    .c5 .bar { background: linear-gradient(90deg, transparent, #2DD4BF); }
+    .c5 .tag { color: #2DD4BF; border-color: rgba(45,212,191,0.4); background: rgba(45,212,191,0.08); }
+    .c5 .btn-solid { background: #2DD4BF; color: #111; }
+    .c5::before { background: #2DD4BF; }
+
+    /* ---- Colour 6: Coral Orange ---- */
+    .c6 .v, .c6 .b { color: #FF6B6B; }
+    .c6 .bar { background: linear-gradient(90deg, transparent, #FF6B6B); }
+    .c6 .tag { color: #FF6B6B; border-color: rgba(255,107,107,0.4); background: rgba(255,107,107,0.08); }
+    .c6 .btn-solid { background: #FF6B6B; }
+    .c6::before { background: #FF6B6B; }
+
+    /* ---- Colour 7: Silver/White ---- */
+    .c7 .v, .c7 .b { color: #E2E8F0; }
+    .c7 .bar { background: linear-gradient(90deg, transparent, #E2E8F0); }
+    .c7 .tag { color: #E2E8F0; border-color: rgba(226,232,240,0.4); background: rgba(226,232,240,0.08); }
+    .c7 .btn-solid { background: #E2E8F0; color: #111; }
+    .c7::before { background: #E2E8F0; }
+
+    /* ---- Colour 8: Lime Green ---- */
+    .c8 .v, .c8 .b { color: #84CC16; }
+    .c8 .bar { background: linear-gradient(90deg, transparent, #84CC16); }
+    .c8 .tag { color: #84CC16; border-color: rgba(132,204,22,0.4); background: rgba(132,204,22,0.08); }
+    .c8 .btn-solid { background: #84CC16; color: #111; }
+    .c8::before { background: #84CC16; }
+
+    /* ---- Colour 9: Cyan ---- */
+    .c9 .v, .c9 .b { color: #22D3EE; }
+    .c9 .bar { background: linear-gradient(90deg, transparent, #22D3EE); }
+    .c9 .tag { color: #22D3EE; border-color: rgba(34,211,238,0.4); background: rgba(34,211,238,0.08); }
+    .c9 .btn-solid { background: #22D3EE; color: #111; }
+    .c9::before { background: #22D3EE; }
+
+    /* ---- Colour 10: Royal Gold (current) ---- */
+    .c10 .v, .c10 .b { color: #D4AF37; }
+    .c10 .bar { background: linear-gradient(90deg, transparent, #D4AF37); }
+    .c10 .tag { color: #D4AF37; border-color: rgba(212,175,55,0.4); background: rgba(212,175,55,0.08); }
+    .c10 .btn-solid { background: #D4AF37; color: #111; }
+    .c10::before { background: #D4AF37; }
+    .c10 .colour-name::after { content: ' (current)'; opacity: 0.5; }
+  </style>
+</head>
+<body>
+  <h1>ACCENT COLOUR OPTIONS</h1>
+  <div class="grid">
+
+    <!-- 1 Electric Blue -->
+    <div class="card c1">
+      <div class="option-num">OPTION 1</div>
+      <div class="logo">
+        <div class="top"><span class="v">V</span>ictor</div>
+        <div class="bar"></div>
+        <div class="bottom"><span class="b">B</span>lessed</div>
+      </div>
+      <div class="name">Victor Ajibade</div>
+      <div class="tag">WEB DEVELOPER</div><br/>
+      <span class="btn btn-solid c1">Download CV</span>
+      <span class="btn btn-outline">Learn More</span>
+      <div class="colour-name">Electric Blue #38BDF8</div>
+    </div>
+
+    <!-- 2 Deep Purple -->
+    <div class="card c2">
+      <div class="option-num">OPTION 2</div>
+      <div class="logo">
+        <div class="top"><span class="v">V</span>ictor</div>
+        <div class="bar"></div>
+        <div class="bottom"><span class="b">B</span>lessed</div>
+      </div>
+      <div class="name">Victor Ajibade</div>
+      <div class="tag">WEB DEVELOPER</div><br/>
+      <span class="btn btn-solid c2">Download CV</span>
+      <span class="btn btn-outline">Learn More</span>
+      <div class="colour-name">Deep Purple #A855F7</div>
+    </div>
+
+    <!-- 3 Rose Pink -->
+    <div class="card c3">
+      <div class="option-num">OPTION 3</div>
+      <div class="logo">
+        <div class="top"><span class="v">V</span>ictor</div>
+        <div class="bar"></div>
+        <div class="bottom"><span class="b">B</span>lessed</div>
+      </div>
+      <div class="name">Victor Ajibade</div>
+      <div class="tag">WEB DEVELOPER</div><br/>
+      <span class="btn btn-solid c3">Download CV</span>
+      <span class="btn btn-outline">Learn More</span>
+      <div class="colour-name">Rose Pink #FB7185</div>
+    </div>
+
+    <!-- 4 Warm Amber -->
+    <div class="card c4">
+      <div class="option-num">OPTION 4</div>
+      <div class="logo">
+        <div class="top"><span class="v">V</span>ictor</div>
+        <div class="bar"></div>
+        <div class="bottom"><span class="b">B</span>lessed</div>
+      </div>
+      <div class="name">Victor Ajibade</div>
+      <div class="tag">WEB DEVELOPER</div><br/>
+      <span class="btn btn-solid c4">Download CV</span>
+      <span class="btn btn-outline">Learn More</span>
+      <div class="colour-name">Warm Amber #F59E0B</div>
+    </div>
+
+    <!-- 5 Mint Teal -->
+    <div class="card c5">
+      <div class="option-num">OPTION 5</div>
+      <div class="logo">
+        <div class="top"><span class="v">V</span>ictor</div>
+        <div class="bar"></div>
+        <div class="bottom"><span class="b">B</span>lessed</div>
+      </div>
+      <div class="name">Victor Ajibade</div>
+      <div class="tag">WEB DEVELOPER</div><br/>
+      <span class="btn btn-solid c5">Download CV</span>
+      <span class="btn btn-outline">Learn More</span>
+      <div class="colour-name">Mint Teal #2DD4BF</div>
+    </div>
+
+    <!-- 6 Coral Orange -->
+    <div class="card c6">
+      <div class="option-num">OPTION 6</div>
+      <div class="logo">
+        <div class="top"><span class="v">V</span>ictor</div>
+        <div class="bar"></div>
+        <div class="bottom"><span class="b">B</span>lessed</div>
+      </div>
+      <div class="name">Victor Ajibade</div>
+      <div class="tag">WEB DEVELOPER</div><br/>
+      <span class="btn btn-solid c6">Download CV</span>
+      <span class="btn btn-outline">Learn More</span>
+      <div class="colour-name">Coral Orange #FF6B6B</div>
+    </div>
+
+    <!-- 7 Silver White -->
+    <div class="card c7">
+      <div class="option-num">OPTION 7</div>
+      <div class="logo">
+        <div class="top"><span class="v">V</span>ictor</div>
+        <div class="bar"></div>
+        <div class="bottom"><span class="b">B</span>lessed</div>
+      </div>
+      <div class="name">Victor Ajibade</div>
+      <div class="tag">WEB DEVELOPER</div><br/>
+      <span class="btn btn-solid c7">Download CV</span>
+      <span class="btn btn-outline">Learn More</span>
+      <div class="colour-name">Silver White #E2E8F0</div>
+    </div>
+
+    <!-- 8 Lime Green -->
+    <div class="card c8">
+      <div class="option-num">OPTION 8</div>
+      <div class="logo">
+        <div class="top"><span class="v">V</span>ictor</div>
+        <div class="bar"></div>
+        <div class="bottom"><span class="b">B</span>lessed</div>
+      </div>
+      <div class="name">Victor Ajibade</div>
+      <div class="tag">WEB DEVELOPER</div><br/>
+      <span class="btn btn-solid c8">Download CV</span>
+      <span class="btn btn-outline">Learn More</span>
+      <div class="colour-name">Lime Green #84CC16</div>
+    </div>
+
+    <!-- 9 Cyan -->
+    <div class="card c9">
+      <div class="option-num">OPTION 9</div>
+      <div class="logo">
+        <div class="top"><span class="v">V</span>ictor</div>
+        <div class="bar"></div>
+        <div class="bottom"><span class="b">B</span>lessed</div>
+      </div>
+      <div class="name">Victor Ajibade</div>
+      <div class="tag">WEB DEVELOPER</div><br/>
+      <span class="btn btn-solid c9">Download CV</span>
+      <span class="btn btn-outline">Learn More</span>
+      <div class="colour-name">Cyan #22D3EE</div>
+    </div>
+
+    <!-- 10 Royal Gold -->
+    <div class="card c10">
+      <div class="option-num">OPTION 10</div>
+      <div class="logo">
+        <div class="top"><span class="v">V</span>ictor</div>
+        <div class="bar"></div>
+        <div class="bottom"><span class="b">B</span>lessed</div>
+      </div>
+      <div class="name">Victor Ajibade</div>
+      <div class="tag">WEB DEVELOPER</div><br/>
+      <span class="btn btn-solid c10">Download CV</span>
+      <span class="btn btn-outline">Learn More</span>
+      <div class="colour-name">Royal Gold #D4AF37</div>
+    </div>
+
+  </div>
+</body>
+</html>

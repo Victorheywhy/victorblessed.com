@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logo Samples — Playfair</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:ital,wght@1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #050505;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1.5rem 4rem;
+      gap: 2rem;
+    }
+    h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 900px;
+    }
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 22px;
+      padding: 2.5rem 1.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.75rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .card:hover {
+      border-color: rgba(24,210,110,0.45);
+      box-shadow: 0 0 50px rgba(24,210,110,0.1);
+    }
+    .card:nth-child(4) { grid-column: 1; }
+    .card:nth-child(5) { grid-column: 2; }
+    .option-num {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #18d26e;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      text-align: center;
+      line-height: 1.6;
+    }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 90px;
+      width: 100%;
+    }
+
+    /* ── OPTION 1: Single line, V·B caps larger, rest normal size ── */
+    .logo-a {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .logo-a .cap { font-size: 2.6rem; color: #18d26e; line-height: 1; }
+    .logo-a .lower { font-size: 1.6rem; color: #fff; line-height: 1; vertical-align: baseline; }
+    .logo-a .space { display: inline-block; width: 0.35em; }
+
+    /* ── OPTION 2: Two lines centred, Victor top, Blessed bottom ── */
+    .logo-b {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1;
+      gap: 2px;
+    }
+    .logo-b .line-top {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+    .logo-b .line-top .v { color: #18d26e; }
+    .logo-b .divider {
+      width: 100%;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, #18d26e, transparent);
+      border-radius: 2px;
+      margin: 4px 0;
+    }
+    .logo-b .line-bottom {
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.06em;
+    }
+    .logo-b .line-bottom .b { color: #18d26e; }
+
+    /* ── OPTION 3: Left-aligned stacked with dot separator ── */
+    .logo-c {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+    .logo-c .row1 {
+      display: flex;
+      align-items: baseline;
+      gap: 0;
+      line-height: 1;
+    }
+    .logo-c .big-v {
+      font-size: 3.8rem;
+      font-weight: 900;
+      color: #18d26e;
+      line-height: 0.9;
+    }
+    .logo-c .ictor {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      padding-bottom: 4px;
+    }
+    .logo-c .row2 {
+      display: flex;
+      align-items: baseline;
+      gap: 0;
+      margin-top: -4px;
+      padding-left: 4px;
+    }
+    .logo-c .big-b {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #18d26e;
+      line-height: 1;
+    }
+    .logo-c .lessed {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.65);
+      padding-bottom: 2px;
+    }
+
+    /* ── OPTION 4: Inline, bigger V & B with green glow ── */
+    .logo-d {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 800;
+      font-size: 2rem;
+      white-space: nowrap;
+      position: relative;
+    }
+    .logo-d .v {
+      font-size: 2.8rem;
+      color: #18d26e;
+      text-shadow: 0 0 30px rgba(24,210,110,0.6);
+      line-height: 1;
+    }
+    .logo-d .ictor { color: #fff; font-size: 2rem; }
+    .logo-d .sp { display: inline-block; width: 0.2em; }
+    .logo-d .b {
+      font-size: 2.8rem;
+      color: #18d26e;
+      text-shadow: 0 0 30px rgba(24,210,110,0.6);
+      line-height: 1;
+    }
+    .logo-d .lessed { color: #fff; font-size: 2rem; }
+
+    /* ── OPTION 5: Victor & Blessed on separate lines, right-aligned, large V ── */
+    .logo-e {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0px;
+    }
+    .logo-e .top {
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .logo-e .top .v { color: #18d26e; }
+    .logo-e .accent-bar {
+      width: 55%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #18d26e);
+      border-radius: 2px;
+      margin: 5px 0 3px auto;
+    }
+    .logo-e .bottom {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+    .logo-e .bottom .b { color: #18d26e; }
+  </style>
+</head>
+<body>
+
+  <h1>Logo Samples — Playfair Display Italic</h1>
+
+  <div class="grid">
+
+    <!-- Option 1: Inline — larger caps -->
+    <div class="card">
+      <div class="option-num">Option 1</div>
+      <div class="logo-wrap">
+        <div class="logo-a">
+          <span class="cap">V</span><span class="lower">ictor</span><span class="space"></span><span class="cap">B</span><span class="lower">lessed</span>
+        </div>
+      </div>
+      <div class="label">Inline · V & B larger<br/>in green</div>
+    </div>
+
+    <!-- Option 2: Two lines centred with divider -->
+    <div class="card">
+      <div class="option-num">Option 2</div>
+      <div class="logo-wrap">
+        <div class="logo-b">
+          <div class="line-top"><span class="v">V</span>ictor</div>
+          <div class="divider"></div>
+          <div class="line-bottom"><span class="b">B</span>lessed</div>
+        </div>
+      </div>
+      <div class="label">Centred stacked<br/>green divider line</div>
+    </div>
+
+    <!-- Option 3: Left stacked — big V tall -->
+    <div class="card">
+      <div class="option-num">Option 3</div>
+      <div class="logo-wrap">
+        <div class="logo-c">
+          <div class="row1">
+            <span class="big-v">V</span><span class="ictor">ictor</span>
+          </div>
+          <div class="row2">
+            <span class="big-b">B</span><span class="lessed">lessed</span>
+          </div>
+        </div>
+      </div>
+      <div class="label">Left stacked<br/>Oversized V & B</div>
+    </div>
+
+    <!-- Option 4: Inline glow on V & B -->
+    <div class="card">
+      <div class="option-num">Option 4</div>
+      <div class="logo-wrap">
+        <div class="logo-d">
+          <span class="v">V</span><span class="ictor">ictor</span><span class="sp"></span><span class="b">B</span><span class="lessed">lessed</span>
+        </div>
+      </div>
+      <div class="label">Inline · Glowing<br/>V & B green</div>
+    </div>
+
+    <!-- Option 5: Right-aligned stacked with bar -->
+    <div class="card">
+      <div class="option-num">Option 5</div>
+      <div class="logo-wrap">
+        <div class="logo-e">
+          <div class="top"><span class="v">V</span>ictor</div>
+          <div class="accent-bar"></div>
+          <div class="bottom"><span class="b">B</span>lessed</div>
+        </div>
+      </div>
+      <div class="label">Right-aligned stacked<br/>green accent bar</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

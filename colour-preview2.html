@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Colour Samples 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700;1,900&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #111; font-family: 'Space Grotesk', sans-serif; padding: 40px 20px; }
+    h1 { color: #fff; text-align: center; margin-bottom: 40px; font-size: 1.4rem; letter-spacing: 0.1em; opacity: 0.6; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+    .card { background: #1a1a1a; border-radius: 16px; padding: 28px 24px; border: 1px solid rgba(255,255,255,0.07); position: relative; overflow: hidden; }
+    .card::before { content: ''; position: absolute; top: -60px; right: -60px; width: 180px; height: 180px; border-radius: 50%; opacity: 0.12; filter: blur(40px); }
+    .option-num { font-size: 0.7rem; letter-spacing: 0.15em; opacity: 0.4; color: #fff; margin-bottom: 14px; }
+    .logo { font-family: 'Playfair Display', serif; font-style: italic; margin-bottom: 16px; }
+    .logo .top { font-size: 2rem; font-weight: 900; color: #fff; }
+    .logo .bar { height: 1.5px; width: 55%; margin: 4px 0 3px; border-radius: 2px; }
+    .logo .bottom { font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.5); }
+    .name { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.5rem; color: #fff; font-weight: 700; margin-bottom: 8px; }
+    .tag { display: inline-block; font-size: 0.65rem; letter-spacing: 0.12em; padding: 3px 10px; border-radius: 20px; border: 1px solid; margin-bottom: 14px; }
+    .btn { display: inline-block; padding: 8px 20px; border-radius: 30px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; margin-right: 8px; cursor: pointer; }
+    .btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+    .colour-name { font-size: 0.7rem; letter-spacing: 0.1em; opacity: 0.5; color: #fff; margin-top: 16px; }
+
+    /* 11 - Neon Orange */
+    .c11 .v,.c11 .b{color:#FF8C00;} .c11 .bar{background:linear-gradient(90deg,transparent,#FF8C00);} .c11 .tag{color:#FF8C00;border-color:rgba(255,140,0,0.4);background:rgba(255,140,0,0.08);} .c11 .btn-solid{background:#FF8C00;color:#111;} .c11::before{background:#FF8C00;}
+
+    /* 12 - Champagne */
+    .c12 .v,.c12 .b{color:#F7E7CE;} .c12 .bar{background:linear-gradient(90deg,transparent,#F7E7CE);} .c12 .tag{color:#F7E7CE;border-color:rgba(247,231,206,0.4);background:rgba(247,231,206,0.08);} .c12 .btn-solid{background:#F7E7CE;color:#111;} .c12::before{background:#F7E7CE;}
+
+    /* 13 - Ice Blue */
+    .c13 .v,.c13 .b{color:#93C5FD;} .c13 .bar{background:linear-gradient(90deg,transparent,#93C5FD);} .c13 .tag{color:#93C5FD;border-color:rgba(147,197,253,0.4);background:rgba(147,197,253,0.08);} .c13 .btn-solid{background:#93C5FD;color:#111;} .c13::before{background:#93C5FD;}
+
+    /* 14 - Emerald */
+    .c14 .v,.c14 .b{color:#10B981;} .c14 .bar{background:linear-gradient(90deg,transparent,#10B981);} .c14 .tag{color:#10B981;border-color:rgba(16,185,129,0.4);background:rgba(16,185,129,0.08);} .c14 .btn-solid{background:#10B981;color:#111;} .c14::before{background:#10B981;}
+
+    /* 15 - Hot Pink */
+    .c15 .v,.c15 .b{color:#EC4899;} .c15 .bar{background:linear-gradient(90deg,transparent,#EC4899);} .c15 .tag{color:#EC4899;border-color:rgba(236,72,153,0.4);background:rgba(236,72,153,0.08);} .c15 .btn-solid{background:#EC4899;} .c15::before{background:#EC4899;}
+
+    /* 16 - Lavender */
+    .c16 .v,.c16 .b{color:#C4B5FD;} .c16 .bar{background:linear-gradient(90deg,transparent,#C4B5FD);} .c16 .tag{color:#C4B5FD;border-color:rgba(196,181,253,0.4);background:rgba(196,181,253,0.08);} .c16 .btn-solid{background:#C4B5FD;color:#111;} .c16::before{background:#C4B5FD;}
+
+    /* 17 - Copper */
+    .c17 .v,.c17 .b{color:#B87333;} .c17 .bar{background:linear-gradient(90deg,transparent,#B87333);} .c17 .tag{color:#B87333;border-color:rgba(184,115,51,0.4);background:rgba(184,115,51,0.08);} .c17 .btn-solid{background:#B87333;} .c17::before{background:#B87333;}
+
+    /* 18 - Neon Green */
+    .c18 .v,.c18 .b{color:#39FF14;} .c18 .bar{background:linear-gradient(90deg,transparent,#39FF14);} .c18 .tag{color:#39FF14;border-color:rgba(57,255,20,0.4);background:rgba(57,255,20,0.08);} .c18 .btn-solid{background:#39FF14;color:#111;} .c18::before{background:#39FF14;}
+
+    /* 19 - Steel Blue */
+    .c19 .v,.c19 .b{color:#60A5FA;} .c19 .bar{background:linear-gradient(90deg,transparent,#60A5FA);} .c19 .tag{color:#60A5FA;border-color:rgba(96,165,250,0.4);background:rgba(96,165,250,0.08);} .c19 .btn-solid{background:#60A5FA;color:#111;} .c19::before{background:#60A5FA;}
+
+    /* 20 - Peach Gold */
+    .c20 .v,.c20 .b{color:#FBBF24;} .c20 .bar{background:linear-gradient(90deg,transparent,#FBBF24);} .c20 .tag{color:#FBBF24;border-color:rgba(251,191,36,0.4);background:rgba(251,191,36,0.08);} .c20 .btn-solid{background:#FBBF24;color:#111;} .c20::before{background:#FBBF24;}
+  </style>
+</head>
+<body>
+  <h1>MORE ACCENT COLOUR OPTIONS (11–20)</h1>
+  <div class="grid">
+
+    <div class="card c11"><div class="option-num">OPTION 11</div><div class="logo"><div class="top"><span class="v">V</span>ictor</div><div class="bar"></div><div class="bottom"><span class="b">B</span>lessed</div></div><div class="name">Victor Ajibade</div><div class="tag">WEB DEVELOPER</div><br/><span class="btn btn-solid c11">Download CV</span><span class="btn btn-outline">Learn More</span><div class="colour-name">Neon Orange #FF8C00</div></div>
+
+    <div class="card c12"><div class="option-num">OPTION 12</div><div class="logo"><div class="top"><span class="v">V</span>ictor</div><div class="bar"></div><div class="bottom"><span class="b">B</span>lessed</div></div><div class="name">Victor Ajibade</div><div class="tag">WEB DEVELOPER</div><br/><span class="btn btn-solid c12">Download CV</span><span class="btn btn-outline">Learn More</span><div class="colour-name">Champagne #F7E7CE</div></div>
+
+    <div class="card c13"><div class="option-num">OPTION 13</div><div class="logo"><div class="top"><span class="v">V</span>ictor</div><div class="bar"></div><div class="bottom"><span class="b">B</span>lessed</div></div><div class="name">Victor Ajibade</div><div class="tag">WEB DEVELOPER</div><br/><span class="btn btn-solid c13">Download CV</span><span class="btn btn-outline">Learn More</span><div class="colour-name">Ice Blue #93C5FD</div></div>
+
+    <div class="card c14"><div class="option-num">OPTION 14</div><div class="logo"><div class="top"><span class="v">V</span>ictor</div><div class="bar"></div><div class="bottom"><span class="b">B</span>lessed</div></div><div class="name">Victor Ajibade</div><div class="tag">WEB DEVELOPER</div><br/><span class="btn btn-solid c14">Download CV</span><span class="btn btn-outline">Learn More</span><div class="colour-name">Emerald #10B981</div></div>
+
+    <div class="card c15"><div class="option-num">OPTION 15</div><div class="logo"><div class="top"><span class="v">V</span>ictor</div><div class="bar"></div><div class="bottom"><span class="b">B</span>lessed</div></div><div class="name">Victor Ajibade</div><div class="tag">WEB DEVELOPER</div><br/><span class="btn btn-solid c15">Download CV</span><span class="btn btn-outline">Learn More</span><div class="colour-name">Hot Pink #EC4899</div></div>
+
+    <div class="card c16"><div class="option-num">OPTION 16</div><div class="logo"><div class="top"><span class="v">V</span>ictor</div><div class="bar"></div><div class="bottom"><span class="b">B</span>lessed</div></div><div class="name">Victor Ajibade</div><div class="tag">WEB DEVELOPER</div><br/><span class="btn btn-solid c16">Download CV</span><span class="btn btn-outline">Learn More</span><div class="colour-name">Lavender #C4B5FD</div></div>
+
+    <div class="card c17"><div class="option-num">OPTION 17</div><div class="logo"><div class="top"><span class="v">V</span>ictor</div><div class="bar"></div><div class="bottom"><span class="b">B</span>lessed</div></div><div class="name">Victor Ajibade</div><div class="tag">WEB DEVELOPER</div><br/><span class="btn btn-solid c17">Download CV</span><span class="btn btn-outline">Learn More</span><div class="colour-name">Copper #B87333</div></div>
+
+    <div class="card c18"><div class="option-num">OPTION 18</div><div class="logo"><div class="top"><span class="v">V</span>ictor</div><div class="bar"></div><div class="bottom"><span class="b">B</span>lessed</div></div><div class="name">Victor Ajibade</div><div class="tag">WEB DEVELOPER</div><br/><span class="btn btn-solid c18">Download CV</span><span class="btn btn-outline">Learn More</span><div class="colour-name">Neon Green #39FF14</div></div>
+
+    <div class="card c19"><div class="option-num">OPTION 19</div><div class="logo"><div class="top"><span class="v">V</span>ictor</div><div class="bar"></div><div class="bottom"><span class="b">B</span>lessed</div></div><div class="name">Victor Ajibade</div><div class="tag">WEB DEVELOPER</div><br/><span class="btn btn-solid c19">Download CV</span><span class="btn btn-outline">Learn More</span><div class="colour-name">Steel Blue #60A5FA</div></div>
+
+    <div class="card c20"><div class="option-num">OPTION 20</div><div class="logo"><div class="top"><span class="v">V</span>ictor</div><div class="bar"></div><div class="bottom"><span class="b">B</span>lessed</div></div><div class="name">Victor Ajibade</div><div class="tag">WEB DEVELOPER</div><br/><span class="btn btn-solid c20">Download CV</span><span class="btn btn-outline">Learn More</span><div class="colour-name">Peach Gold #FBBF24</div></div>
+
+  </div>
+</body>
+</html>

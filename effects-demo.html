@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Effects Demo</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #1c1c1c; color: #f0ece0; font-family: 'Inter', sans-serif; }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      padding: 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 { text-align: center; color: #D4AF37; padding: 32px 0 0; font-size: 1.5rem; letter-spacing: 0.1em; }
+    p.sub { text-align: center; color: rgba(240,236,224,0.5); font-size: 0.85rem; margin-bottom: 8px; }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 16px;
+      padding: 28px;
+      min-height: 200px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .card-label {
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      font-size: 0.7rem;
+      color: #D4AF37;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .card-num {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 0.7rem;
+      color: rgba(212,175,55,0.4);
+    }
+
+    /* ---- 1. Floating Particles ---- */
+    #demo1 canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+    #demo1 .label-overlay { position: relative; z-index: 2; font-size: 1rem; color: #D4AF37; }
+
+    /* ---- 2. Cursor Ripple ---- */
+    #demo2 { cursor: crosshair; }
+    .ripple-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid rgba(212,175,55,0.7);
+      pointer-events: none;
+      animation: rippleOut 0.9s ease-out forwards;
+    }
+    @keyframes rippleOut {
+      from { width: 0; height: 0; opacity: 1; transform: translate(-50%,-50%) scale(1); }
+      to   { width: 80px; height: 80px; opacity: 0; transform: translate(-50%,-50%) scale(1); }
+    }
+
+    /* ---- 3. Twinkling Stars ---- */
+    #demo3 { background: #111; }
+    .star {
+      position: absolute;
+      width: 2px; height: 2px;
+      background: #D4AF37;
+      border-radius: 50%;
+      animation: twinkle var(--dur) ease-in-out infinite var(--delay);
+    }
+    @keyframes twinkle {
+      0%,100% { opacity: 0; transform: scale(0.5); }
+      50%      { opacity: 1; transform: scale(1.4); }
+    }
+    #demo3 span { position: relative; z-index: 2; font-size: 0.95rem; color: rgba(240,236,224,0.8); }
+
+    /* ---- 4. Breathing Glow ---- */
+    .breathe-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #D4AF37;
+      animation: breathe 3s ease-in-out infinite;
+      font-style: italic;
+      font-family: Georgia, serif;
+    }
+    @keyframes breathe {
+      0%,100% { text-shadow: 0 0 8px rgba(212,175,55,0.3), 0 0 20px rgba(212,175,55,0.1); }
+      50%      { text-shadow: 0 0 20px rgba(212,175,55,0.9), 0 0 40px rgba(212,175,55,0.5), 0 0 60px rgba(212,175,55,0.2); }
+    }
+
+    /* ---- 5. Magnetic Buttons ---- */
+    .mag-btn {
+      padding: 12px 32px;
+      border: 1.5px solid #D4AF37;
+      background: transparent;
+      color: #D4AF37;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+      letter-spacing: 0.05em;
+    }
+    .mag-btn:hover {
+      background: #D4AF37;
+      color: #1c1c1c;
+      box-shadow: 0 0 24px rgba(212,175,55,0.4);
+    }
+    #demo5 p { font-size: 0.78rem; color: rgba(240,236,224,0.45); margin-top: 6px; }
+
+    /* ---- 6. Text Shimmer ---- */
+    .shimmer-text {
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #D4AF37 0%, #fff8dc 40%, #D4AF37 60%, #b8941e 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerMove 2.5s linear infinite;
+      font-style: italic;
+      font-family: Georgia, serif;
+    }
+    @keyframes shimmerMove {
+      from { background-position: 200% center; }
+      to   { background-position: -200% center; }
+    }
+
+    /* ---- 7. Card Tilt ---- */
+    .tilt-card {
+      width: 160px;
+      height: 90px;
+      background: rgba(212,175,55,0.08);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: #D4AF37;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+      transform-style: preserve-3d;
+    }
+    #demo7 { perspective: 600px; }
+    #demo7 p { font-size: 0.78rem; color: rgba(240,236,224,0.45); margin-top: 8px; }
+
+    /* ---- 8. Scroll Progress Bar ---- */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #D4AF37, #fff8dc);
+      z-index: 9999;
+      transition: width 0.1s;
+      box-shadow: 0 0 8px rgba(212,175,55,0.6);
+    }
+    #demo8 .bar-preview {
+      width: 100%;
+      height: 4px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    #demo8 .bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #D4AF37, #fff8dc);
+      border-radius: 999px;
+      animation: barGrow 2s ease-in-out infinite alternate;
+      box-shadow: 0 0 8px rgba(212,175,55,0.5);
+    }
+    @keyframes barGrow {
+      from { width: 10%; }
+      to   { width: 90%; }
+    }
+    #demo8 p { font-size: 0.78rem; color: rgba(240,236,224,0.45); margin-top: 8px; }
+
+    /* ---- 9. Count-Up ---- */
+    .count-grid { display: flex; gap: 24px; }
+    .count-item { text-align: center; }
+    .count-num { font-size: 2rem; font-weight: 700; color: #D4AF37; }
+    .count-lbl { font-size: 0.7rem; color: rgba(240,236,224,0.5); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ---- 10. Cursor Glow ---- */
+    .typed-preview {
+      font-size: 1.1rem;
+      color: rgba(240,236,224,0.8);
+    }
+    .typed-preview .cursor {
+      display: inline-block;
+      color: #D4AF37;
+      font-weight: 300;
+      animation: cursorPulse 1s ease-in-out infinite;
+    }
+    .typed-preview .role { color: #D4AF37; font-weight: 600; }
+    @keyframes cursorPulse {
+      0%,100% { opacity: 1; text-shadow: 0 0 6px rgba(212,175,55,0.8); }
+      50%      { opacity: 0; text-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<h1>10 Live Effects — Victor Blessed</h1>
+<p class="sub">Hover over cards to interact where noted</p>
+
+<div class="demo-grid">
+
+  <!-- 1. Floating Particles -->
+  <div class="card" id="demo1">
+    <span class="card-label">Floating Particles</span>
+    <span class="card-num">01</span>
+    <canvas id="particles-canvas"></canvas>
+    <span class="label-overlay">Tiny gold dots drift upward</span>
+  </div>
+
+  <!-- 2. Cursor Ripple -->
+  <div class="card" id="demo2">
+    <span class="card-label">Cursor Ripple</span>
+    <span class="card-num">02</span>
+    <span style="font-size:0.85rem;color:rgba(240,236,224,0.5);">Move your mouse here</span>
+  </div>
+
+  <!-- 3. Twinkling Stars -->
+  <div class="card" id="demo3">
+    <span class="card-label">Twinkling Stars</span>
+    <span class="card-num">03</span>
+    <span>✦ Background sparkles ✦</span>
+  </div>
+
+  <!-- 4. Breathing Glow -->
+  <div class="card" id="demo4">
+    <span class="card-label">Breathing Glow</span>
+    <span class="card-num">04</span>
+    <div class="breathe-text">Victor Blessed</div>
+  </div>
+
+  <!-- 5. Magnetic Buttons -->
+  <div class="card" id="demo5">
+    <span class="card-label">Magnetic Buttons</span>
+    <span class="card-num">05</span>
+    <button class="mag-btn" id="mag-btn">Hire Me</button>
+    <p>Hover — button pulls to your cursor</p>
+  </div>
+
+  <!-- 6. Text Shimmer -->
+  <div class="card" id="demo6">
+    <span class="card-label">Text Shimmer</span>
+    <span class="card-num">06</span>
+    <div class="shimmer-text">Victor Ajibade</div>
+  </div>
+
+  <!-- 7. Card Tilt -->
+  <div class="card" id="demo7">
+    <span class="card-label">3D Card Tilt</span>
+    <span class="card-num">07</span>
+    <div class="tilt-card" id="tilt-card">Hover Me</div>
+    <p>Hover — card tilts in 3D</p>
+  </div>
+
+  <!-- 8. Scroll Progress Bar -->
+  <div class="card" id="demo8">
+    <span class="card-label">Scroll Progress Bar</span>
+    <span class="card-num">08</span>
+    <div class="bar-preview"><div class="bar-fill"></div></div>
+    <p>Gold bar at top grows as you scroll</p>
+  </div>
+
+  <!-- 9. Count-Up Numbers -->
+  <div class="card" id="demo9">
+    <span class="card-label">Count-Up Numbers</span>
+    <span class="card-num">09</span>
+    <div class="count-grid">
+      <div class="count-item"><div class="count-num" data-target="5">0</div><div class="count-lbl">Years</div></div>
+      <div class="count-item"><div class="count-num" data-target="200">0</div><div class="count-lbl">Clients</div></div>
+      <div class="count-item"><div class="count-num" data-target="100">0</div><div class="count-lbl">Reviews</div></div>
+    </div>
+  </div>
+
+  <!-- 10. Typewriter Cursor Glow -->
+  <div class="card" id="demo10">
+    <span class="card-label">Typewriter Cursor Glow</span>
+    <span class="card-num">10</span>
+    <div class="typed-preview">I am a <span class="role" id="typed-role">Web Developer</span><span class="cursor"> |</span></div>
+  </div>
+
+</div>
+
+<script>
+// ---- 1. Floating Particles ----
+(function() {
+  const canvas = document.getElementById('particles-canvas');
+  const ctx = canvas.getContext('2d');
+  const card = document.getElementById('demo1');
+  let particles = [];
+
+  function resize() {
+    canvas.width = card.offsetWidth;
+    canvas.height = card.offsetHeight;
+  }
+  resize();
+
+  for (let i = 0; i < 35; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2 + 0.5,
+      speed: Math.random() * 0.5 + 0.2,
+      opacity: Math.random()
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(212,175,55,${p.opacity})`;
+      ctx.fill();
+      p.y -= p.speed;
+      p.opacity -= 0.003;
+      if (p.y < 0 || p.opacity <= 0) {
+        p.y = canvas.height;
+        p.x = Math.random() * canvas.width;
+        p.opacity = Math.random() * 0.8 + 0.2;
+      }
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ---- 2. Cursor Ripple ----
+document.getElementById('demo2').addEventListener('click', function(e) {
+  const rect = this.getBoundingClientRect();
+  const ring = document.createElement('div');
+  ring.className = 'ripple-ring';
+  ring.style.left = (e.clientX - rect.left) + 'px';
+  ring.style.top  = (e.clientY - rect.top) + 'px';
+  this.appendChild(ring);
+  setTimeout(() => ring.remove(), 900);
+});
+
+// ---- 3. Twinkling Stars ----
+(function() {
+  const card = document.getElementById('demo3');
+  for (let i = 0; i < 40; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top  = Math.random() * 100 + '%';
+    s.style.setProperty('--dur',   (Math.random() * 2 + 1.5) + 's');
+    s.style.setProperty('--delay', (Math.random() * 3) + 's');
+    card.appendChild(s);
+  }
+})();
+
+// ---- 5. Magnetic Button ----
+(function() {
+  const btn = document.getElementById('mag-btn');
+  btn.addEventListener('mousemove', function(e) {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top  - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.25}px, ${y * 0.35}px)`;
+  });
+  btn.addEventListener('mouseleave', function() {
+    btn.style.transform = 'translate(0,0)';
+  });
+})();
+
+// ---- 7. Card Tilt ----
+(function() {
+  const card = document.getElementById('tilt-card');
+  card.addEventListener('mousemove', function(e) {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width  - 0.5;
+    const y = (e.clientY - rect.top)  / rect.height - 0.5;
+    card.style.transform = `rotateY(${x * 25}deg) rotateX(${-y * 25}deg) scale(1.05)`;
+    card.style.boxShadow = `${-x*12}px ${-y*12}px 24px rgba(212,175,55,0.25)`;
+  });
+  card.addEventListener('mouseleave', function() {
+    card.style.transform = 'rotateY(0) rotateX(0) scale(1)';
+    card.style.boxShadow = 'none';
+  });
+})();
+
+// ---- 8. Scroll Progress Bar ----
+window.addEventListener('scroll', function() {
+  const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progress-bar').style.width = scrolled + '%';
+});
+
+// ---- 9. Count-Up ----
+(function() {
+  const nums = document.querySelectorAll('#demo9 .count-num');
+  let started = false;
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !started) {
+      started = true;
+      nums.forEach(el => {
+        const target = +el.dataset.target;
+        let current = 0;
+        const step = target / 60;
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = Math.floor(current) + (target >= 100 ? '+' : '+');
+          if (current >= target) clearInterval(timer);
+        }, 25);
+      });
+    }
+  });
+  obs.observe(document.getElementById('demo9'));
+})();
+
+// ---- 10. Typewriter Cursor ----
+(function() {
+  const roles = ['Web Developer', 'Data Analyst', 'VA Expert', 'Content Writer', 'Graphics Designer'];
+  let i = 0, charIndex = 0, deleting = false;
+  const el = document.getElementById('typed-role');
+
+  function type() {
+    const word = roles[i];
+    if (!deleting) {
+      el.textContent = word.slice(0, ++charIndex);
+      if (charIndex === word.length) { deleting = true; setTimeout(type, 1200); return; }
+    } else {
+      el.textContent = word.slice(0, --charIndex);
+      if (charIndex === 0) { deleting = false; i = (i + 1) % roles.length; }
+    }
+    setTimeout(type, deleting ? 60 : 100);
+  }
+  type();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logo Export</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 500px;
+      height: 500px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .logo-top {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 900;
+      font-size: 5.5rem;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      text-transform: none;
+    }
+
+    .logo-top .v {
+      color: #D4AF37;
+    }
+
+    .logo-bar {
+      width: 75%;
+      height: 2.5px;
+      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+      margin: 8px auto 6px;
+      border-radius: 2px;
+    }
+
+    .logo-bottom {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 2.1rem;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-transform: none;
+    }
+
+    .logo-bottom .b {
+      color: #D4AF37;
+    }
+
+    /* No background effects */
+  </style>
+</head>
+<body>
+  <div class="logo-wrap">
+    <div class="logo-top"><span class="v">V</span>ictor</div>
+    <div class="logo-bar"></div>
+    <div class="logo-bottom"><span class="b">B</span>lessed</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WhatsApp Cover</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      position: relative;
+      background: #0d0d0d;
+    }
+
+    /* Full background — plain dark, no photo to avoid double face */
+    .bg-photo {
+      position: absolute;
+      inset: 0;
+      background: #0d0d0d;
+    }
+
+    /* Subtle dark vignette overlay */
+    .bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(20,18,14,0.0) 0%, rgba(10,10,10,0.6) 100%);
+    }
+
+    /* Subtle gold grid */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(212,175,55,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,175,55,0.03) 1px, transparent 1px);
+      background-size: 55px 55px;
+    }
+
+    /* Gold glow top-left */
+    .bg-glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      left: -80px;
+      top: -150px;
+      background: radial-gradient(circle, rgba(212,175,55,0.09) 0%, transparent 65%);
+      border-radius: 50%;
+    }
+
+    /* Border frame */
+    .frame {
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(212,175,55,0.18);
+      border-radius: 14px;
+      pointer-events: none;
+      z-index: 20;
+    }
+    .frame::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 50px; right: 50px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    }
+    .frame::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 50px; right: 50px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    }
+
+    /* Victor's portrait — right side */
+    .portrait {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      width: 480px;
+      object-fit: cover;
+      object-position: center top;
+      mix-blend-mode: screen;
+      z-index: 5;
+      mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+    }
+
+    /* Left content */
+    .content {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 620px;
+      height: 100%;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 55px 65px;
+      gap: 26px;
+    }
+
+    /* Logo */
+    .logo-top {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 900;
+      font-size: 5rem;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .logo-top .v { color: #D4AF37; }
+
+    .logo-bar {
+      width: 55%;
+      height: 2px;
+      background: linear-gradient(90deg, #D4AF37, transparent);
+      margin: 8px 0 6px;
+    }
+
+    .logo-bottom {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 2rem;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.06em;
+      line-height: 1;
+    }
+    .logo-bottom .b { color: #D4AF37; }
+
+    .tagline {
+      font-size: 0.72rem;
+      color: rgba(212,175,55,0.65);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* Divider */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(212,175,55,0.35), transparent);
+    }
+
+    /* Links */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .link-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,175,55,0.35);
+      background: rgba(212,175,55,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .link-icon svg {
+      width: 13px;
+      height: 13px;
+      fill: #D4AF37;
+    }
+
+    .link-text {
+      font-size: 0.9rem;
+      color: rgba(240,236,224,0.8);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    /* Services row */
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      padding: 5px 14px;
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 999px;
+      font-size: 0.68rem;
+      color: rgba(240,236,224,0.6);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      background: rgba(212,175,55,0.05);
+    }
+
+    .chip.gold {
+      border-color: rgba(212,175,55,0.45);
+      color: #D4AF37;
+      background: rgba(212,175,55,0.1);
+    }
+
+    /* Bio */
+    .bio {
+      font-size: 0.82rem;
+      color: rgba(240,236,224,0.55);
+      line-height: 1.65;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      max-width: 460px;
+    }
+
+    /* Available badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 16px;
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 999px;
+      font-size: 0.68rem;
+      color: rgba(212,175,55,0.85);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      width: fit-content;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #D4AF37;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-photo"></div>
+  <div class="bg-overlay"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="frame"></div>
+
+  <!-- Victor's portrait on the right -->
+  <img class="portrait" src="assets/img/mobile_image.png" alt="Victor Ajibade" />
+
+  <!-- Left content -->
+  <div class="content">
+
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Available for Hire
+    </div>
+
+    <div class="tagline">Portfolio &nbsp;·&nbsp; Professional Profile</div>
+
+    <div class="divider"></div>
+
+    <div class="links">
+      <div class="link-item">
+        <div class="link-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
+        <div class="link-text">www.victorblessed.com</div>
+      </div>
+      <div class="link-item">
+        <div class="link-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </div>
+        <div class="link-text">linkedin.com/in/victorblessed</div>
+      </div>
+    </div>
+
+    <div class="services">
+      <span class="chip gold">Web Developer</span>
+      <span class="chip gold">Data Analyst</span>
+      <span class="chip">Virtual Assistant</span>
+      <span class="chip">Content Writer</span>
+      <span class="chip">Graphics Designer</span>
+      <span class="chip">Soundtrack Producer</span>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Background Preview</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;font-family:'Inter',sans-serif;padding:2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+.card{position:relative;width:100%;height:220px;border-radius:16px;overflow:hidden;border:1px solid #1a3a1a;display:flex;align-items:center;justify-content:center;}
+.label{position:absolute;bottom:12px;left:0;right:0;text-align:center;color:#fff;font-size:0.85rem;font-weight:600;letter-spacing:.06em;z-index:10;text-shadow:0 1px 6px #000;}
+.num{position:absolute;top:12px;left:16px;color:#22c55e;font-size:0.7rem;font-weight:700;letter-spacing:.1em;z-index:10;}
+canvas{position:absolute;inset:0;width:100%;height:100%;}
+/* shared dark bg */
+.card{background:#060f06;}
+</style>
+</head>
+<body>
+
+<!-- Option 1: Particle Network -->
+<div class="card" id="c1">
+  <canvas id="cv1"></canvas>
+  <span class="num">OPTION 1</span>
+  <span class="label">Animated Particle Network</span>
+</div>
+
+<!-- Option 2: Flowing Grid -->
+<div class="card" id="c2">
+  <canvas id="cv2"></canvas>
+  <span class="num">OPTION 2</span>
+  <span class="label">Flowing Perspective Grid</span>
+</div>
+
+<!-- Option 3: Aurora Blobs -->
+<div class="card" id="c3">
+  <canvas id="cv3"></canvas>
+  <span class="num">OPTION 3</span>
+  <span class="label">Aurora Blobs</span>
+</div>
+
+<!-- Option 4: Diagonal Scan Lines -->
+<div class="card" id="c4">
+  <canvas id="cv4"></canvas>
+  <span class="num">OPTION 4</span>
+  <span class="label">Diagonal Scan Lines</span>
+</div>
+
+<!-- Option 5: Dot Matrix -->
+<div class="card" id="c5">
+  <canvas id="cv5"></canvas>
+  <span class="num">OPTION 5</span>
+  <span class="label">Interactive Dot Matrix</span>
+</div>
+
+<!-- Option 6: SVG Wave Lines -->
+<div class="card" id="c6">
+  <canvas id="cv6"></canvas>
+  <span class="num">OPTION 6</span>
+  <span class="label">SVG Wave Lines</span>
+</div>
+
+<!-- Option 7: Glitch Grid -->
+<div class="card" id="c7" style="grid-column:span 2;">
+  <canvas id="cv7"></canvas>
+  <span class="num">OPTION 7</span>
+  <span class="label">Glitch Grid</span>
+</div>
+
+<script>
+// ── OPTION 1: Particle Network ──────────────────────────────────
+(function(){
+  const cv=document.getElementById('cv1'),ctx=cv.getContext('2d');
+  const w=cv.width=cv.parentElement.offsetWidth, h=cv.height=cv.parentElement.offsetHeight;
+  const pts=Array.from({length:55},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6}));
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;});
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<90){ctx.beginPath();ctx.strokeStyle=`rgba(34,197,94,${1-d/90})`;ctx.lineWidth=.7;ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke();}
+    }
+    pts.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,2,0,Math.PI*2);ctx.fillStyle='#4ade80';ctx.fill();});
+    requestAnimationFrame(draw);
+  }draw();
+})();
+
+// ── OPTION 2: Flowing Perspective Grid ──────────────────────────
+(function(){
+  const cv=document.getElementById('cv2'),ctx=cv.getContext('2d');
+  const w=cv.width=cv.parentElement.offsetWidth,h=cv.height=cv.parentElement.offsetHeight;
+  let t=0;
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    const vp={x:w/2,y:h*0.38};
+    ctx.strokeStyle='rgba(34,197,94,0.35)';ctx.lineWidth=.8;
+    // vertical lines
+    for(let i=-10;i<=10;i++){
+      const bx=w/2+i*(w/10);
+      ctx.beginPath();ctx.moveTo(vp.x,vp.y);ctx.lineTo(bx,h);ctx.stroke();
+    }
+    // horizontal lines with scroll offset
+    const rows=12;
+    for(let r=0;r<rows;r++){
+      const frac=((r/rows)+t)%1;
+      const fy=vp.y+frac*(h-vp.y);
+      const alpha=frac*0.5;
+      ctx.strokeStyle=`rgba(34,197,94,${alpha})`;
+      const xl=vp.x-(vp.x*(fy-vp.y)/(h-vp.y));
+      const xr=vp.x+(( w-vp.x)*(fy-vp.y)/(h-vp.y));
+      ctx.beginPath();ctx.moveTo(xl,fy);ctx.lineTo(xr,fy);ctx.stroke();
+    }
+    t=(t+0.004)%1;
+    requestAnimationFrame(draw);
+  }draw();
+})();
+
+// ── OPTION 3: Aurora Blobs ──────────────────────────────────────
+(function(){
+  const cv=document.getElementById('cv3'),ctx=cv.getContext('2d');
+  const w=cv.width=cv.parentElement.offsetWidth,h=cv.height=cv.parentElement.offsetHeight;
+  const blobs=[
+    {x:w*.3,y:h*.4,r:w*.35,ox:w*.3,oy:h*.4,sx:.0007,sy:.0009,c:'rgba(34,197,94,'},
+    {x:w*.7,y:h*.55,r:w*.28,ox:w*.7,oy:h*.55,sx:.001,sy:.0006,c:'rgba(16,185,129,'},
+    {x:w*.5,y:h*.2,r:w*.2,ox:w*.5,oy:h*.2,sx:.0012,sy:.0008,c:'rgba(74,222,128,'},
+  ];
+  let t=0;
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    blobs.forEach(b=>{
+      b.x=b.ox+Math.sin(t*b.sx*1000)*w*.18;
+      b.y=b.oy+Math.cos(t*b.sy*1000)*h*.15;
+      const g=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
+      g.addColorStop(0,b.c+'0.18)');g.addColorStop(1,b.c+'0)');
+      ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
+      ctx.fillStyle=g;ctx.fill();
+    });
+    t++;requestAnimationFrame(draw);
+  }draw();
+})();
+
+// ── OPTION 4: Diagonal Scan Lines ──────────────────────────────
+(function(){
+  const cv=document.getElementById('cv4'),ctx=cv.getContext('2d');
+  const w=cv.width=cv.parentElement.offsetWidth,h=cv.height=cv.parentElement.offsetHeight;
+  let off=0;
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    const spacing=22;
+    for(let i=-(h+w);i<(w+h);i+=spacing){
+      ctx.beginPath();ctx.strokeStyle='rgba(34,197,94,0.12)';ctx.lineWidth=1;
+      ctx.moveTo(i,0);ctx.lineTo(i+h,h);ctx.stroke();
+    }
+    // shimmer sweep
+    const sx=(off%( w+h))-(w*.2);
+    const g=ctx.createLinearGradient(sx,0,sx+w*.25,h);
+    g.addColorStop(0,'rgba(34,197,94,0)');
+    g.addColorStop(0.5,'rgba(34,197,94,0.18)');
+    g.addColorStop(1,'rgba(34,197,94,0)');
+    ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+    off+=2;requestAnimationFrame(draw);
+  }draw();
+})();
+
+// ── OPTION 5: Dot Matrix ────────────────────────────────────────
+(function(){
+  const cv=document.getElementById('cv5'),ctx=cv.getContext('2d');
+  const w=cv.width=cv.parentElement.offsetWidth,h=cv.height=cv.parentElement.offsetHeight;
+  const gap=20;let t=0;
+  // simulate cursor movement
+  const mouse={x:w*.3,y:h*.4};
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    // animate fake cursor
+    mouse.x=w/2+Math.sin(t*.018)*w*.35;
+    mouse.y=h/2+Math.cos(t*.012)*h*.3;
+    for(let x=gap;x<w;x+=gap){
+      for(let y=gap;y<h;y+=gap){
+        const dx=x-mouse.x,dy=y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);
+        const r=d<90?2.5-d/60:.8;
+        const alpha=d<90?0.9-d/120:.18;
+        ctx.beginPath();ctx.arc(x,y,Math.max(r,.5),0,Math.PI*2);
+        ctx.fillStyle=`rgba(34,197,94,${alpha})`;ctx.fill();
+      }
+    }
+    t++;requestAnimationFrame(draw);
+  }draw();
+})();
+
+// ── OPTION 6: SVG Wave Lines ────────────────────────────────────
+(function(){
+  const cv=document.getElementById('cv6'),ctx=cv.getContext('2d');
+  const w=cv.width=cv.parentElement.offsetWidth,h=cv.height=cv.parentElement.offsetHeight;
+  let t=0;
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    const waves=6;
+    for(let wi=0;wi<waves;wi++){
+      const oy=h/(waves+1)*(wi+1);
+      const amp=18+wi*4;const freq=0.018;const speed=t*.015+wi*.6;
+      ctx.beginPath();ctx.moveTo(0,oy);
+      for(let x=0;x<=w;x+=2){
+        const y=oy+Math.sin(x*freq+speed)*amp+Math.sin(x*freq*.5+speed*.7)*amp*.4;
+        ctx.lineTo(x,y);
+      }
+      ctx.strokeStyle=`rgba(34,197,94,${0.08+wi*.06})`;
+      ctx.lineWidth=1.2;ctx.stroke();
+    }
+    t++;requestAnimationFrame(draw);
+  }draw();
+})();
+
+// ── OPTION 7: Glitch Grid ───────────────────────────────────────
+(function(){
+  const cv=document.getElementById('cv7'),ctx=cv.getContext('2d');
+  const w=cv.width=cv.parentElement.offsetWidth,h=cv.height=cv.parentElement.offsetHeight;
+  let t=0;let glitch=0;let glitchTimer=0;
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    const gs=40;
+    // grid
+    for(let x=0;x<=w;x+=gs){ctx.beginPath();ctx.strokeStyle='rgba(34,197,94,0.1)';ctx.lineWidth=.8;ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke();}
+    for(let y=0;y<=h;y+=gs){ctx.beginPath();ctx.strokeStyle='rgba(34,197,94,0.1)';ctx.lineWidth=.8;ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+    // glitch cells
+    glitchTimer--;
+    if(glitchTimer<=0){glitch=Math.random()>.6?1:0;glitchTimer=Math.floor(Math.random()*18)+4;}
+    if(glitch){
+      const n=Math.floor(Math.random()*5)+2;
+      for(let i=0;i<n;i++){
+        const cx=Math.floor(Math.random()*(w/gs))*gs;
+        const cy=Math.floor(Math.random()*(h/gs))*gs;
+        ctx.fillStyle=`rgba(34,197,94,${Math.random()*.25})`;
+        ctx.fillRect(cx,cy,gs,gs);
+        // glitch line
+        ctx.fillStyle=`rgba(34,197,94,${Math.random()*.5})`;
+        ctx.fillRect(cx,cy+Math.random()*gs,gs,1.5);
+      }
+    }
+    // pulsing intersections
+    for(let x=0;x<=w;x+=gs){for(let y=0;y<=h;y+=gs){
+      const pulse=Math.sin(t*.04+x*.01+y*.01)*.5+.5;
+      ctx.beginPath();ctx.arc(x,y,1.5,0,Math.PI*2);
+      ctx.fillStyle=`rgba(34,197,94,${pulse*.5})`;ctx.fill();
+    }}
+    t++;requestAnimationFrame(draw);
+  }draw();
+})();
+</script>
+</body>
+</html>

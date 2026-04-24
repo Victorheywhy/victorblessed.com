@@ -1,2 +1,4 @@
 venv
 forms/contact.php
+node_modules/
+.claude/worktrees/

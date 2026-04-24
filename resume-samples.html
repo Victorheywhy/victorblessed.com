@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Samples — Victor Ajibade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #111113;
+      font-family: 'Inter', sans-serif;
+      padding: 48px 24px;
+      min-height: 100vh;
+    }
+
+    /* ── Page label ── */
+    .sample-label {
+      text-align: center;
+      color: #93C5FD;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    /* ── Separator ── */
+    .separator {
+      width: 100%;
+      max-width: 860px;
+      margin: 52px auto;
+      border: none;
+      border-top: 1px solid #2a2a2e;
+      position: relative;
+    }
+    .separator::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: #93C5FD;
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* ── Resume wrapper ── */
+    .resume-wrapper {
+      width: 794px;
+      height: 1123px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+    }
+
+    /* ════════════════════════════════════════════
+       SAMPLE 1 — DARK MINIMAL (matches website)
+    ════════════════════════════════════════════ */
+    .s1 {
+      background: #1C1C1E;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      grid-template-rows: 1fr;
+      font-family: 'Inter', sans-serif;
+      color: #E5E7EB;
+    }
+
+    /* S1 Sidebar */
+    .s1-sidebar {
+      background: #141416;
+      padding: 36px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      border-right: 1px solid #2a2a2e;
+    }
+    .s1-sidebar-header {
+      text-align: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #2a2a2e;
+    }
+    .s1-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #93C5FD;
+      display: block;
+      margin: 0 auto 12px;
+    }
+    .s1-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #F9FAFB;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+    .s1-title-line {
+      font-size: 9px;
+      color: #93C5FD;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 5px;
+      line-height: 1.5;
+    }
+
+    .s1-section-title {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #93C5FD;
+      margin-bottom: 10px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #93C5FD30;
+    }
+
+    .s1-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 9px;
+      color: #9CA3AF;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .s1-contact-icon {
+      color: #93C5FD;
+      font-size: 10px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .s1-skill-tag {
+      display: inline-block;
+      background: #93C5FD15;
+      border: 1px solid #93C5FD30;
+      color: #93C5FD;
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin: 2px 2px 2px 0;
+    }
+
+    .s1-edu-item {
+      margin-bottom: 12px;
+    }
+    .s1-edu-degree {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: #E5E7EB;
+      line-height: 1.3;
+    }
+    .s1-edu-school {
+      font-size: 8.5px;
+      color: #93C5FD;
+      margin-top: 2px;
+    }
+    .s1-edu-year {
+      font-size: 8px;
+      color: #6B7280;
+      margin-top: 2px;
+    }
+
+    .s1-cert-item {
+      margin-bottom: 10px;
+    }
+    .s1-cert-name {
+      font-size: 9px;
+      font-weight: 600;
+      color: #E5E7EB;
+      line-height: 1.3;
+    }
+    .s1-cert-issuer {
+      font-size: 8px;
+      color: #6B7280;
+      margin-top: 2px;
+    }
+
+    /* S1 Main */
+    .s1-main {
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      overflow: hidden;
+    }
+    .s1-main-header {
+      padding-bottom: 18px;
+      border-bottom: 1px solid #2a2a2e;
+    }
+    .s1-main-name {
+      font-size: 30px;
+      font-weight: 700;
+      color: #F9FAFB;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .s1-main-name span {
+      color: #93C5FD;
+    }
+    .s1-main-subtitle {
+      font-size: 10px;
+      color: #6B7280;
+      margin-top: 6px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .s1-main-summary {
+      font-size: 9.5px;
+      color: #9CA3AF;
+      line-height: 1.65;
+      margin-top: 10px;
+    }
+
+    .s1-main-section-title {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #93C5FD;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #93C5FD25;
+    }
+
+    .s1-exp-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 12px;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #222224;
+    }
+    .s1-exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .s1-exp-role {
+      font-size: 11px;
+      font-weight: 600;
+      color: #F9FAFB;
+    }
+    .s1-exp-date {
+      font-size: 8px;
+      color: #93C5FD;
+      font-weight: 500;
+      white-space: nowrap;
+      text-align: right;
+      padding-top: 2px;
+    }
+    .s1-exp-company {
+      font-size: 9px;
+      color: #93C5FD;
+      font-weight: 500;
+    }
+    .s1-exp-location {
+      font-size: 8px;
+      color: #4B5563;
+      text-align: right;
+    }
+    .s1-exp-desc {
+      font-size: 8.5px;
+      color: #9CA3AF;
+      line-height: 1.6;
+      grid-column: 1 / -1;
+      margin-top: 4px;
+    }
+    .s1-exp-dot {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #93C5FD;
+      margin-right: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    .s1-bullet {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      font-size: 8.5px;
+      color: #9CA3AF;
+      line-height: 1.55;
+      margin-bottom: 3px;
+    }
+    .s1-bullet::before {
+      content: '▸';
+      color: #93C5FD;
+      flex-shrink: 0;
+      font-size: 8px;
+      margin-top: 1px;
+    }
+
+
+    /* ════════════════════════════════════════════
+       SAMPLE 2 — CLASSIC WHITE PROFESSIONAL
+    ════════════════════════════════════════════ */
+    .s2 {
+      background: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      color: #1E3A5F;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .s2-header {
+      background: #1E3A5F;
+      padding: 32px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .s2-header-left { flex: 1; }
+    .s2-header-name {
+      font-size: 34px;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .s2-header-rule {
+      width: 48px;
+      height: 3px;
+      background: #D4AF37;
+      margin: 10px 0 8px;
+    }
+    .s2-header-title {
+      font-size: 10px;
+      color: #93B4D4;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .s2-header-right {
+      text-align: right;
+    }
+    .s2-contact-line {
+      font-size: 9px;
+      color: #93B4D4;
+      margin-bottom: 4px;
+      letter-spacing: 0.03em;
+    }
+    .s2-contact-line span {
+      color: #D4AF37;
+      font-weight: 500;
+    }
+
+    .s2-body {
+      padding: 28px 48px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .s2-summary {
+      font-size: 9.5px;
+      color: #374151;
+      line-height: 1.7;
+      padding: 14px 18px;
+      border-left: 3px solid #D4AF37;
+      background: #F8FAFC;
+    }
+
+    .s2-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .s2-section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .s2-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #1E3A5F;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .s2-section-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, #1E3A5F40, transparent);
+    }
+    .s2-section-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #D4AF37;
+      flex-shrink: 0;
+    }
+
+    .s2-exp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 24px;
+    }
+    .s2-exp-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #E5EAF0;
+    }
+    .s2-exp-item:last-child { border-bottom: none; }
+    .s2-exp-role {
+      font-size: 11px;
+      font-weight: 700;
+      color: #1E3A5F;
+    }
+    .s2-exp-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3px;
+    }
+    .s2-exp-company {
+      font-size: 9px;
+      color: #D4AF37;
+      font-weight: 600;
+    }
+    .s2-exp-date {
+      font-size: 8.5px;
+      color: #6B7280;
+      font-style: italic;
+    }
+    .s2-exp-desc {
+      font-size: 8.5px;
+      color: #4B5563;
+      line-height: 1.6;
+      margin-top: 5px;
+    }
+
+    .s2-edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .s2-edu-item {
+      padding: 12px 16px;
+      background: #F8FAFC;
+      border: 1px solid #E5EAF0;
+      border-top: 3px solid #1E3A5F;
+    }
+    .s2-edu-degree {
+      font-size: 10px;
+      font-weight: 700;
+      color: #1E3A5F;
+    }
+    .s2-edu-school {
+      font-size: 9px;
+      color: #D4AF37;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .s2-edu-year {
+      font-size: 8px;
+      color: #6B7280;
+      margin-top: 3px;
+    }
+
+    .s2-skills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .s2-skill-pill {
+      padding: 4px 12px;
+      border: 1px solid #1E3A5F30;
+      border-radius: 2px;
+      font-size: 8.5px;
+      font-weight: 500;
+      color: #1E3A5F;
+      background: #F8FAFC;
+      letter-spacing: 0.04em;
+    }
+
+    .s2-cert-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .s2-cert-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .s2-cert-badge {
+      width: 24px;
+      height: 24px;
+      background: #D4AF37;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #1E3A5F;
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+    .s2-cert-name {
+      font-size: 9px;
+      font-weight: 600;
+      color: #1E3A5F;
+      line-height: 1.3;
+    }
+    .s2-cert-issuer {
+      font-size: 8px;
+      color: #6B7280;
+      margin-top: 2px;
+    }
+
+    .s2-footer {
+      background: #1E3A5F;
+      padding: 10px 48px;
+      text-align: center;
+    }
+    .s2-footer-text {
+      font-size: 8px;
+      color: #93B4D4;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .s2-footer-text span { color: #D4AF37; }
+
+
+    /* ════════════════════════════════════════════
+       SAMPLE 3 — MODERN SPLIT (BOLD HEADER)
+    ════════════════════════════════════════════ */
+    .s3 {
+      background: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      color: #1a1a2e;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .s3-header {
+      background: #1a1a2e;
+      padding: 30px 42px;
+      position: relative;
+      overflow: hidden;
+    }
+    .s3-header::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(147, 197, 253, 0.06);
+    }
+    .s3-header::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      right: 80px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(147, 197, 253, 0.04);
+    }
+    .s3-header-name {
+      font-size: 44px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+    .s3-header-name-accent {
+      color: #93C5FD;
+    }
+    .s3-header-divider {
+      width: 60px;
+      height: 3px;
+      background: #93C5FD;
+      margin: 12px 0 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .s3-header-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .s3-header-title {
+      font-size: 10px;
+      color: #93C5FD;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .s3-header-sep {
+      width: 1px;
+      height: 14px;
+      background: #93C5FD40;
+    }
+    .s3-header-contact {
+      font-size: 9px;
+      color: #6B84A8;
+      letter-spacing: 0.04em;
+    }
+
+    .s3-body {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      flex: 1;
+    }
+
+    .s3-sidebar {
+      background: #1a1a2e;
+      padding: 24px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .s3-sb-section-title {
+      font-size: 7.5px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #93C5FD;
+      margin-bottom: 10px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #93C5FD20;
+    }
+    .s3-sb-skill {
+      margin-bottom: 8px;
+    }
+    .s3-sb-skill-name {
+      font-size: 8.5px;
+      color: #D1D5DB;
+      margin-bottom: 3px;
+      font-weight: 500;
+    }
+    .s3-sb-skill-bar {
+      height: 3px;
+      background: #ffffff15;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .s3-sb-skill-fill {
+      height: 100%;
+      background: linear-gradient(to right, #93C5FD, #3B82F6);
+      border-radius: 2px;
+    }
+    .s3-sb-edu-item {
+      margin-bottom: 12px;
+    }
+    .s3-sb-edu-degree {
+      font-size: 8.5px;
+      font-weight: 600;
+      color: #E5E7EB;
+      line-height: 1.3;
+    }
+    .s3-sb-edu-school {
+      font-size: 8px;
+      color: #93C5FD;
+      margin-top: 2px;
+    }
+    .s3-sb-edu-year {
+      font-size: 7.5px;
+      color: #4B5563;
+      margin-top: 2px;
+    }
+    .s3-sb-cert-item {
+      margin-bottom: 10px;
+      padding: 8px;
+      background: #ffffff08;
+      border-left: 2px solid #93C5FD;
+    }
+    .s3-sb-cert-name {
+      font-size: 8px;
+      font-weight: 600;
+      color: #E5E7EB;
+      line-height: 1.3;
+    }
+    .s3-sb-cert-issuer {
+      font-size: 7.5px;
+      color: #6B7280;
+      margin-top: 2px;
+    }
+    .s3-sb-contact-item {
+      font-size: 8px;
+      color: #6B7280;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .s3-sb-contact-item strong {
+      display: block;
+      color: #93C5FD;
+      font-size: 7px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1px;
+    }
+
+    .s3-main {
+      padding: 24px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      overflow: hidden;
+    }
+    .s3-main-section-title {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #1a1a2e;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .s3-main-section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #E5E7EB;
+    }
+
+    .s3-timeline-item {
+      display: grid;
+      grid-template-columns: 12px 1fr;
+      gap: 0 12px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+    .s3-timeline-item:last-child { margin-bottom: 0; }
+    .s3-timeline-dot-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .s3-timeline-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #93C5FD;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 0 0 2px #93C5FD40;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .s3-timeline-line {
+      flex: 1;
+      width: 1px;
+      background: #E5E7EB;
+      margin-top: 4px;
+    }
+    .s3-exp-role {
+      font-size: 11px;
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.2;
+    }
+    .s3-exp-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2px;
+    }
+    .s3-exp-company {
+      font-size: 9px;
+      color: #3B82F6;
+      font-weight: 600;
+    }
+    .s3-exp-date {
+      font-size: 8px;
+      color: #9CA3AF;
+      font-style: italic;
+    }
+    .s3-exp-desc {
+      font-size: 8.5px;
+      color: #6B7280;
+      line-height: 1.6;
+      margin-top: 4px;
+    }
+
+    .s3-summary {
+      font-size: 9.5px;
+      color: #374151;
+      line-height: 1.7;
+    }
+
+
+    /* ════════════════════════════════════════════
+       SAMPLE 4 — ELEGANT MINIMAL (CREAM)
+    ════════════════════════════════════════════ */
+    .s4 {
+      background: #FAFAF8;
+      font-family: 'Inter', sans-serif;
+      color: #111111;
+      display: flex;
+      flex-direction: column;
+      padding: 52px 60px;
+    }
+
+    .s4-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #E0E0DA;
+      margin-bottom: 36px;
+    }
+    .s4-header-left {}
+    .s4-header-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 46px;
+      font-weight: 900;
+      color: #111111;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .s4-header-name-accent {
+      color: #93C5FD;
+      font-style: italic;
+    }
+    .s4-header-title {
+      font-size: 8.5px;
+      color: #888880;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+    .s4-header-right {
+      text-align: right;
+    }
+    .s4-header-contact-item {
+      font-size: 9px;
+      color: #666660;
+      margin-bottom: 4px;
+      letter-spacing: 0.03em;
+    }
+    .s4-header-contact-item a {
+      color: #93C5FD;
+      text-decoration: none;
+    }
+
+    .s4-body {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 0 48px;
+      flex: 1;
+    }
+
+    .s4-main { display: flex; flex-direction: column; gap: 28px; }
+    .s4-aside { display: flex; flex-direction: column; gap: 28px; }
+
+    .s4-section {}
+    .s4-section-title {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #93C5FD;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .s4-section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #E0E0DA;
+    }
+
+    .s4-summary {
+      font-size: 10px;
+      color: #444440;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .s4-exp-item {
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #EBEBEA;
+    }
+    .s4-exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .s4-exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .s4-exp-role {
+      font-size: 12px;
+      font-weight: 600;
+      color: #111111;
+      letter-spacing: -0.01em;
+    }
+    .s4-exp-date {
+      font-size: 8.5px;
+      color: #93C5FD;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .s4-exp-company {
+      font-size: 9px;
+      color: #888880;
+      margin-top: 2px;
+      letter-spacing: 0.04em;
+      font-weight: 400;
+    }
+    .s4-exp-desc {
+      font-size: 9px;
+      color: #555550;
+      line-height: 1.7;
+      margin-top: 6px;
+      font-weight: 300;
+    }
+
+    .s4-aside-section-title {
+      font-size: 7.5px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #93C5FD;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #E0E0DA;
+    }
+
+    .s4-edu-item {
+      margin-bottom: 14px;
+    }
+    .s4-edu-degree {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: #111111;
+      line-height: 1.3;
+    }
+    .s4-edu-school {
+      font-size: 8.5px;
+      color: #93C5FD;
+      margin-top: 3px;
+    }
+    .s4-edu-year {
+      font-size: 8px;
+      color: #AAAAAA;
+      margin-top: 2px;
+    }
+
+    .s4-skill-item {
+      font-size: 8.5px;
+      color: #444440;
+      padding: 4px 0;
+      border-bottom: 1px solid #EBEBEA;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .s4-skill-item:last-child { border-bottom: none; }
+    .s4-skill-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #93C5FD;
+    }
+
+    .s4-cert-item {
+      margin-bottom: 10px;
+    }
+    .s4-cert-name {
+      font-size: 8.5px;
+      font-weight: 600;
+      color: #222220;
+      line-height: 1.3;
+    }
+    .s4-cert-issuer {
+      font-size: 7.5px;
+      color: #AAAAAA;
+      margin-top: 2px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════
+       SAMPLE 1 — DARK MINIMAL
+  ════════════════════════════════════════════════════ -->
+  <p class="sample-label">Sample 1 &mdash; Dark Minimal</p>
+
+  <div class="resume-wrapper s1">
+
+    <!-- Sidebar -->
+    <div class="s1-sidebar">
+      <div class="s1-sidebar-header">
+        <img class="s1-avatar" src="assets/img/IMG_3844.JPG-Photoroom.png" alt="Victor Ajibade" />
+        <div class="s1-name">Victor Ajibade</div>
+        <div class="s1-title-line">Web Developer · VA · Data Analyst<br>Graphic Designer · Content Writer</div>
+      </div>
+
+      <div>
+        <div class="s1-section-title">Contact</div>
+        <div class="s1-contact-item"><span class="s1-contact-icon">✉</span>connect@victorblessed.com</div>
+        <div class="s1-contact-item"><span class="s1-contact-icon">🌐</span>victorblessed.com</div>
+        <div class="s1-contact-item"><span class="s1-contact-icon">in</span>linkedin.com/in/victorblessed</div>
+      </div>
+
+      <div>
+        <div class="s1-section-title">Skills</div>
+        <span class="s1-skill-tag">HTML / CSS</span>
+        <span class="s1-skill-tag">JavaScript</span>
+        <span class="s1-skill-tag">React</span>
+        <span class="s1-skill-tag">Figma</span>
+        <span class="s1-skill-tag">Adobe XD</span>
+        <span class="s1-skill-tag">Google Sheets</span>
+        <span class="s1-skill-tag">Data Analysis</span>
+        <span class="s1-skill-tag">Copywriting</span>
+        <span class="s1-skill-tag">SEO Writing</span>
+        <span class="s1-skill-tag">Scriptwriting</span>
+        <span class="s1-skill-tag">Virtual Assistant</span>
+        <span class="s1-skill-tag">Airbnb / VRBO</span>
+      </div>
+
+      <div>
+        <div class="s1-section-title">Education</div>
+        <div class="s1-edu-item">
+          <div class="s1-edu-degree">B.Ed. English Language</div>
+          <div class="s1-edu-school">Obafemi Awolowo University</div>
+          <div class="s1-edu-year">2017 – 2020</div>
+        </div>
+        <div class="s1-edu-item">
+          <div class="s1-edu-degree">High School Certificate (WAEC)</div>
+          <div class="s1-edu-school">Osogbo Grammar School</div>
+          <div class="s1-edu-year">2007 – 2010</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="s1-section-title">Certifications</div>
+        <div class="s1-cert-item">
+          <div class="s1-cert-name">Virtual Assistant Programme</div>
+          <div class="s1-cert-issuer">ALX Africa &middot; Sep–Oct 2024 (8 wks)</div>
+        </div>
+        <div class="s1-cert-item">
+          <div class="s1-cert-name">Complete Web Development Bootcamp</div>
+          <div class="s1-cert-issuer">Udemy &middot; Dr. Angela Yu &middot; 2023</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <div class="s1-main">
+      <div class="s1-main-header">
+        <div class="s1-main-name">Victor <span>Ajibade</span></div>
+        <div class="s1-main-subtitle">Web Developer &nbsp;&middot;&nbsp; Virtual Assistant &nbsp;&middot;&nbsp; Data Analyst &nbsp;&middot;&nbsp; Designer</div>
+        <div class="s1-main-summary">
+          Versatile multi-disciplinary professional with 8+ years of experience spanning frontend development, virtual assistance, data analysis, and creative content production. Adept at delivering end-to-end digital solutions — from designing intuitive interfaces to managing high-value short-term rental operations and writing compelling copy. Proven ability to work remotely across time zones with minimal oversight.
+        </div>
+      </div>
+
+      <div>
+        <div class="s1-main-section-title">Professional Experience</div>
+
+        <div class="s1-exp-item">
+          <div class="s1-exp-role">Virtual Assistant</div>
+          <div class="s1-exp-date">Mar 2023 – Present</div>
+          <div class="s1-exp-company">Everyday Luxury Vacation Rentals &middot; Dana Point, CA</div>
+          <div class="s1-exp-location">Remote</div>
+          <div class="s1-exp-desc">
+            <div class="s1-bullet">Managed guest communications, reservations, and calendar syncing across Airbnb, VRBO, and Direct platforms for luxury coastal properties.</div>
+            <div class="s1-bullet">Coordinated housekeeping schedules, maintenance requests, and 5-star guest experience workflows.</div>
+            <div class="s1-bullet">Handled pricing strategy and occupancy optimization using dynamic pricing tools.</div>
+          </div>
+        </div>
+
+        <div class="s1-exp-item">
+          <div class="s1-exp-role">Virtual Assistant</div>
+          <div class="s1-exp-date">Jun 2024 – Present</div>
+          <div class="s1-exp-company">Righteous Rentals &middot; Oceanside, CA</div>
+          <div class="s1-exp-location">Remote</div>
+          <div class="s1-exp-desc">
+            <div class="s1-bullet">Overseeing operations, tenant relations, and administrative tasks for a growing short-term rental portfolio.</div>
+            <div class="s1-bullet">Created and maintained SOPs for onboarding, property turnover, and guest communication templates.</div>
+          </div>
+        </div>
+
+        <div class="s1-exp-item">
+          <div class="s1-exp-role">Frontend Developer</div>
+          <div class="s1-exp-date">Aug 2021 – Present</div>
+          <div class="s1-exp-company">OPENSAUCERY</div>
+          <div class="s1-exp-location">Remote</div>
+          <div class="s1-exp-desc">
+            <div class="s1-bullet">Built and maintained responsive web applications using HTML5, CSS3, JavaScript, and React.</div>
+            <div class="s1-bullet">Collaborated with designers to translate Figma mockups into pixel-perfect, accessible UIs.</div>
+          </div>
+        </div>
+
+        <div class="s1-exp-item">
+          <div class="s1-exp-role">Scriptwriter</div>
+          <div class="s1-exp-date">Apr 2021 – Jun 2024</div>
+          <div class="s1-exp-company">Pak Filmmakers</div>
+          <div class="s1-exp-location">Remote</div>
+          <div class="s1-exp-desc">
+            <div class="s1-bullet">Wrote scripts for documentary and short-form video productions; delivered work ahead of tight broadcast deadlines.</div>
+          </div>
+        </div>
+
+        <div class="s1-exp-item">
+          <div class="s1-exp-role">Whitepaper Developer &amp; Designer</div>
+          <div class="s1-exp-date">Oct 2021 – Feb 2023</div>
+          <div class="s1-exp-company">Dow7 Coin</div>
+          <div class="s1-exp-location">Remote</div>
+          <div class="s1-exp-desc">
+            <div class="s1-bullet">Authored and designed the technical whitepaper for a blockchain cryptocurrency project; ensured compliance with investor documentation standards.</div>
+          </div>
+        </div>
+
+        <div class="s1-exp-item">
+          <div class="s1-exp-role">Freelance Writer</div>
+          <div class="s1-exp-date">Mar 2016 – Present</div>
+          <div class="s1-exp-company">Fiverr</div>
+          <div class="s1-exp-location">Remote</div>
+          <div class="s1-exp-desc">
+            <div class="s1-bullet">8+ years delivering SEO articles, blog posts, product descriptions, and copywriting for 100+ global clients across 20+ industries.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr class="separator" />
+
+  <!-- ═══════════════════════════════════════════════════
+       SAMPLE 2 — CLASSIC WHITE PROFESSIONAL
+  ════════════════════════════════════════════════════ -->
+  <p class="sample-label">Sample 2 &mdash; Classic White Professional</p>
+
+  <div class="resume-wrapper s2">
+    <div class="s2-header">
+      <div class="s2-header-left">
+        <div class="s2-header-name">Victor Ajibade</div>
+        <div class="s2-header-rule"></div>
+        <div class="s2-header-title">Web Developer &nbsp;&bull;&nbsp; Virtual Assistant &nbsp;&bull;&nbsp; Data Analyst &nbsp;&bull;&nbsp; Graphic Designer &nbsp;&bull;&nbsp; Content Writer</div>
+      </div>
+      <div class="s2-header-right">
+        <div class="s2-contact-line"><span>Email</span>&nbsp; connect@victorblessed.com</div>
+        <div class="s2-contact-line"><span>Web</span>&nbsp; victorblessed.com</div>
+        <div class="s2-contact-line"><span>LinkedIn</span>&nbsp; linkedin.com/in/victorblessed</div>
+      </div>
+      <img src="assets/img/IMG_3844.JPG-Photoroom.png" alt="Victor Ajibade" style="width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid white;margin-left:20px;flex-shrink:0;" />
+    </div>
+
+    <div class="s2-body">
+
+      <!-- Summary -->
+      <div class="s2-summary">
+        Results-driven multi-disciplinary professional with over 8 years of remote work experience. Combines technical expertise in frontend web development with a strong foundation in virtual property management, data analysis, and creative writing. Known for precision, reliability, and the ability to manage complex projects across multiple domains independently.
+      </div>
+
+      <!-- Experience -->
+      <div class="s2-section">
+        <div class="s2-section-header">
+          <div class="s2-section-dot"></div>
+          <div class="s2-section-title">Professional Experience</div>
+          <div class="s2-section-line"></div>
+        </div>
+        <div class="s2-exp-grid">
+          <div>
+            <div class="s2-exp-item">
+              <div class="s2-exp-role">Virtual Assistant</div>
+              <div class="s2-exp-meta">
+                <div class="s2-exp-company">Everyday Luxury Vacation Rentals &middot; Dana Point, CA</div>
+                <div class="s2-exp-date">Mar 2023 – Present</div>
+              </div>
+              <div class="s2-exp-desc">Managed guest communications, reservations, and calendar syncing across multiple platforms for luxury coastal properties. Coordinated housekeeping, pricing strategy, and occupancy optimization to maintain 5-star standards.</div>
+            </div>
+            <div class="s2-exp-item">
+              <div class="s2-exp-role">Frontend Developer</div>
+              <div class="s2-exp-meta">
+                <div class="s2-exp-company">OPENSAUCERY</div>
+                <div class="s2-exp-date">Aug 2021 – Present</div>
+              </div>
+              <div class="s2-exp-desc">Built responsive web applications using HTML5, CSS3, JavaScript, and React. Translated Figma mockups into pixel-perfect, accessible interfaces with performance optimization.</div>
+            </div>
+            <div class="s2-exp-item">
+              <div class="s2-exp-role">Whitepaper Developer &amp; Designer</div>
+              <div class="s2-exp-meta">
+                <div class="s2-exp-company">Dow7 Coin</div>
+                <div class="s2-exp-date">Oct 2021 – Feb 2023</div>
+              </div>
+              <div class="s2-exp-desc">Authored and designed technical whitepaper for a blockchain cryptocurrency project, ensuring compliance with investor documentation standards and regulatory expectations.</div>
+            </div>
+          </div>
+          <div>
+            <div class="s2-exp-item">
+              <div class="s2-exp-role">Virtual Assistant</div>
+              <div class="s2-exp-meta">
+                <div class="s2-exp-company">Righteous Rentals &middot; Oceanside, CA</div>
+                <div class="s2-exp-date">Jun 2024 – Present</div>
+              </div>
+              <div class="s2-exp-desc">Overseeing operations, tenant relations, and administration for a growing short-term rental portfolio. Created SOPs for onboarding, property turnover, and guest communication templates.</div>
+            </div>
+            <div class="s2-exp-item">
+              <div class="s2-exp-role">Scriptwriter</div>
+              <div class="s2-exp-meta">
+                <div class="s2-exp-company">Pak Filmmakers</div>
+                <div class="s2-exp-date">Apr 2021 – Jun 2024</div>
+              </div>
+              <div class="s2-exp-desc">Wrote scripts for documentary and short-form video productions. Delivered broadcast-ready content ahead of tight deadlines with consistent narrative quality and client satisfaction.</div>
+            </div>
+            <div class="s2-exp-item">
+              <div class="s2-exp-role">Freelance Writer</div>
+              <div class="s2-exp-meta">
+                <div class="s2-exp-company">Fiverr</div>
+                <div class="s2-exp-date">Mar 2016 – Present</div>
+              </div>
+              <div class="s2-exp-desc">8+ years delivering SEO articles, blog posts, product descriptions, and copywriting for 100+ international clients across 20+ industries with a 5-star rating.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="s2-section">
+        <div class="s2-section-header">
+          <div class="s2-section-dot"></div>
+          <div class="s2-section-title">Education</div>
+          <div class="s2-section-line"></div>
+        </div>
+        <div class="s2-edu-grid">
+          <div class="s2-edu-item">
+            <div class="s2-edu-degree">Bachelor of Education (B.Ed.) — English Language</div>
+            <div class="s2-edu-school">Obafemi Awolowo University, Ile-Ife, Nigeria</div>
+            <div class="s2-edu-year">2017 – 2020</div>
+          </div>
+          <div class="s2-edu-item">
+            <div class="s2-edu-degree">West African Senior School Certificate (WAEC)</div>
+            <div class="s2-edu-school">Osogbo Grammar School, Osogbo, Nigeria</div>
+            <div class="s2-edu-year">2007 – 2010</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="s2-section">
+        <div class="s2-section-header">
+          <div class="s2-section-dot"></div>
+          <div class="s2-section-title">Certifications</div>
+          <div class="s2-section-line"></div>
+        </div>
+        <div class="s2-cert-row">
+          <div class="s2-cert-item">
+            <div class="s2-cert-badge">★</div>
+            <div>
+              <div class="s2-cert-name">Virtual Assistant Programme</div>
+              <div class="s2-cert-issuer">ALX Africa &middot; Sep–Oct 2024 &middot; 8-Week Intensive</div>
+            </div>
+          </div>
+          <div class="s2-cert-item">
+            <div class="s2-cert-badge">★</div>
+            <div>
+              <div class="s2-cert-name">The Complete Web Development Bootcamp</div>
+              <div class="s2-cert-issuer">Udemy &middot; Dr. Angela Yu &middot; 2023</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="s2-section">
+        <div class="s2-section-header">
+          <div class="s2-section-dot"></div>
+          <div class="s2-section-title">Core Competencies</div>
+          <div class="s2-section-line"></div>
+        </div>
+        <div class="s2-skills-row">
+          <span class="s2-skill-pill">HTML5 / CSS3</span>
+          <span class="s2-skill-pill">JavaScript (ES6+)</span>
+          <span class="s2-skill-pill">React.js</span>
+          <span class="s2-skill-pill">Figma</span>
+          <span class="s2-skill-pill">Adobe Illustrator</span>
+          <span class="s2-skill-pill">Google Analytics</span>
+          <span class="s2-skill-pill">Data Analysis</span>
+          <span class="s2-skill-pill">SEO Copywriting</span>
+          <span class="s2-skill-pill">Scriptwriting</span>
+          <span class="s2-skill-pill">Virtual Assistance</span>
+          <span class="s2-skill-pill">Airbnb / VRBO Ops</span>
+          <span class="s2-skill-pill">CRM Management</span>
+          <span class="s2-skill-pill">Project Management</span>
+          <span class="s2-skill-pill">Content Strategy</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="s2-footer">
+      <div class="s2-footer-text">References available upon request &nbsp;&bull;&nbsp; <span>victorblessed.com</span></div>
+    </div>
+  </div>
+
+  <hr class="separator" />
+
+  <!-- ═══════════════════════════════════════════════════
+       SAMPLE 3 — MODERN SPLIT (BOLD HEADER)
+  ════════════════════════════════════════════════════ -->
+  <p class="sample-label">Sample 3 &mdash; Modern Split (Bold Header)</p>
+
+  <div class="resume-wrapper s3">
+    <div class="s3-header">
+      <div class="s3-header-name">VICTOR <span class="s3-header-name-accent">AJIBADE</span></div>
+      <div class="s3-header-divider"></div>
+      <div class="s3-header-meta">
+        <div class="s3-header-title">Web Developer &middot; VA &middot; Data Analyst &middot; Designer</div>
+        <div class="s3-header-sep"></div>
+        <div class="s3-header-contact">connect@victorblessed.com &nbsp;&middot;&nbsp; victorblessed.com</div>
+        <div class="s3-header-sep"></div>
+        <div class="s3-header-contact">linkedin.com/in/victorblessed</div>
+      </div>
+    </div>
+
+    <div class="s3-body">
+      <!-- Sidebar -->
+      <div class="s3-sidebar">
+
+        <div style="text-align:center;padding-bottom:4px;">
+          <img src="assets/img/IMG_3844.JPG-Photoroom.png" alt="Victor Ajibade" style="width:100px;height:100px;border-radius:50%;object-fit:cover;border:2px solid #93C5FD;display:block;margin:0 auto;" />
+        </div>
+
+        <div>
+          <div class="s3-sb-section-title">Profile</div>
+          <div style="font-size:8.5px; color:#9CA3AF; line-height:1.6;">
+            Multi-disciplinary professional blending technology, creativity, and operations. 8+ years remote. Expert in building web products, managing rentals, and creating compelling content.
+          </div>
+        </div>
+
+        <div>
+          <div class="s3-sb-section-title">Skills</div>
+          <div class="s3-sb-skill"><div class="s3-sb-skill-name">HTML / CSS / JS</div><div class="s3-sb-skill-bar"><div class="s3-sb-skill-fill" style="width:92%"></div></div></div>
+          <div class="s3-sb-skill"><div class="s3-sb-skill-name">React.js</div><div class="s3-sb-skill-bar"><div class="s3-sb-skill-fill" style="width:82%"></div></div></div>
+          <div class="s3-sb-skill"><div class="s3-sb-skill-name">Figma / Adobe XD</div><div class="s3-sb-skill-bar"><div class="s3-sb-skill-fill" style="width:88%"></div></div></div>
+          <div class="s3-sb-skill"><div class="s3-sb-skill-name">Data Analysis</div><div class="s3-sb-skill-bar"><div class="s3-sb-skill-fill" style="width:78%"></div></div></div>
+          <div class="s3-sb-skill"><div class="s3-sb-skill-name">SEO / Copywriting</div><div class="s3-sb-skill-bar"><div class="s3-sb-skill-fill" style="width:95%"></div></div></div>
+          <div class="s3-sb-skill"><div class="s3-sb-skill-name">VA / Property Ops</div><div class="s3-sb-skill-bar"><div class="s3-sb-skill-fill" style="width:90%"></div></div></div>
+          <div class="s3-sb-skill"><div class="s3-sb-skill-name">Scriptwriting</div><div class="s3-sb-skill-bar"><div class="s3-sb-skill-fill" style="width:85%"></div></div></div>
+        </div>
+
+        <div>
+          <div class="s3-sb-section-title">Education</div>
+          <div class="s3-sb-edu-item">
+            <div class="s3-sb-edu-degree">B.Ed. English Language</div>
+            <div class="s3-sb-edu-school">Obafemi Awolowo University</div>
+            <div class="s3-sb-edu-year">2017 – 2020</div>
+          </div>
+          <div class="s3-sb-edu-item">
+            <div class="s3-sb-edu-degree">High School Certificate (WAEC)</div>
+            <div class="s3-sb-edu-school">Osogbo Grammar School</div>
+            <div class="s3-sb-edu-year">2007 – 2010</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="s3-sb-section-title">Certifications</div>
+          <div class="s3-sb-cert-item">
+            <div class="s3-sb-cert-name">Virtual Assistant Programme</div>
+            <div class="s3-sb-cert-issuer">ALX Africa &middot; 2024</div>
+          </div>
+          <div class="s3-sb-cert-item">
+            <div class="s3-sb-cert-name">Complete Web Dev Bootcamp</div>
+            <div class="s3-sb-cert-issuer">Udemy &middot; Dr. Angela Yu &middot; 2023</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="s3-sb-section-title">Contact</div>
+          <div class="s3-sb-contact-item"><strong>Email</strong>connect@victorblessed.com</div>
+          <div class="s3-sb-contact-item"><strong>Website</strong>victorblessed.com</div>
+          <div class="s3-sb-contact-item"><strong>LinkedIn</strong>linkedin.com/in/victorblessed</div>
+        </div>
+
+      </div>
+
+      <!-- Main -->
+      <div class="s3-main">
+        <div>
+          <div class="s3-main-section-title">Professional Summary</div>
+          <div class="s3-summary">
+            Versatile remote professional with 8+ years of proven performance across web development, virtual assistance for luxury vacation rentals, data analysis, graphic design, and content creation. Recognized for precision, autonomy, and delivering high-quality outputs across diverse client verticals and time zones.
+          </div>
+        </div>
+
+        <div>
+          <div class="s3-main-section-title">Professional Experience</div>
+
+          <div class="s3-timeline-item">
+            <div class="s3-timeline-dot-col">
+              <div class="s3-timeline-dot"></div>
+              <div class="s3-timeline-line"></div>
+            </div>
+            <div>
+              <div class="s3-exp-role">Virtual Assistant</div>
+              <div class="s3-exp-meta">
+                <div class="s3-exp-company">Everyday Luxury Vacation Rentals &middot; Dana Point, CA</div>
+                <div class="s3-exp-date">Mar 2023 – Present</div>
+              </div>
+              <div class="s3-exp-desc">Managed full-cycle guest experience for luxury coastal properties — guest comms, calendar management, housekeeping coordination, and dynamic pricing across Airbnb, VRBO, and Direct channels.</div>
+            </div>
+          </div>
+
+          <div class="s3-timeline-item">
+            <div class="s3-timeline-dot-col">
+              <div class="s3-timeline-dot"></div>
+              <div class="s3-timeline-line"></div>
+            </div>
+            <div>
+              <div class="s3-exp-role">Virtual Assistant</div>
+              <div class="s3-exp-meta">
+                <div class="s3-exp-company">Righteous Rentals &middot; Oceanside, CA</div>
+                <div class="s3-exp-date">Jun 2024 – Present</div>
+              </div>
+              <div class="s3-exp-desc">Handling operations, tenant relations, and administrative functions for a growing short-term rental portfolio, including SOP creation for onboarding and turnover workflows.</div>
+            </div>
+          </div>
+
+          <div class="s3-timeline-item">
+            <div class="s3-timeline-dot-col">
+              <div class="s3-timeline-dot"></div>
+              <div class="s3-timeline-line"></div>
+            </div>
+            <div>
+              <div class="s3-exp-role">Frontend Developer</div>
+              <div class="s3-exp-meta">
+                <div class="s3-exp-company">OPENSAUCERY</div>
+                <div class="s3-exp-date">Aug 2021 – Present</div>
+              </div>
+              <div class="s3-exp-desc">Developing responsive, accessible web applications using HTML5, CSS3, JavaScript, and React. Partnering with design teams to translate UI mockups into production-ready code.</div>
+            </div>
+          </div>
+
+          <div class="s3-timeline-item">
+            <div class="s3-timeline-dot-col">
+              <div class="s3-timeline-dot"></div>
+              <div class="s3-timeline-line"></div>
+            </div>
+            <div>
+              <div class="s3-exp-role">Scriptwriter</div>
+              <div class="s3-exp-meta">
+                <div class="s3-exp-company">Pak Filmmakers</div>
+                <div class="s3-exp-date">Apr 2021 – Jun 2024</div>
+              </div>
+              <div class="s3-exp-desc">Crafted scripts for documentary and short-form video productions, meeting broadcast-standard quality and tight production schedules over a 3-year engagement.</div>
+            </div>
+          </div>
+
+          <div class="s3-timeline-item">
+            <div class="s3-timeline-dot-col">
+              <div class="s3-timeline-dot"></div>
+              <div class="s3-timeline-line"></div>
+            </div>
+            <div>
+              <div class="s3-exp-role">Whitepaper Developer &amp; Designer</div>
+              <div class="s3-exp-meta">
+                <div class="s3-exp-company">Dow7 Coin</div>
+                <div class="s3-exp-date">Oct 2021 – Feb 2023</div>
+              </div>
+              <div class="s3-exp-desc">Authored and designed the full technical whitepaper for a blockchain crypto project, covering tokenomics, use cases, and investor relations documentation.</div>
+            </div>
+          </div>
+
+          <div class="s3-timeline-item">
+            <div class="s3-timeline-dot-col">
+              <div class="s3-timeline-dot"></div>
+            </div>
+            <div>
+              <div class="s3-exp-role">Freelance Writer</div>
+              <div class="s3-exp-meta">
+                <div class="s3-exp-company">Fiverr</div>
+                <div class="s3-exp-date">Mar 2016 – Present</div>
+              </div>
+              <div class="s3-exp-desc">8+ years delivering premium SEO content, blog posts, product descriptions, and copywriting for 100+ global clients across 20+ industries with consistent 5-star reviews.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="separator" />
+
+  <!-- ═══════════════════════════════════════════════════
+       SAMPLE 4 — ELEGANT MINIMAL (CREAM)
+  ════════════════════════════════════════════════════ -->
+  <p class="sample-label">Sample 4 &mdash; Elegant Minimal (Cream)</p>
+
+  <div class="resume-wrapper s4">
+    <div class="s4-header">
+      <!-- Name + Title left -->
+      <div class="s4-header-left" style="flex:1;">
+        <div class="s4-header-name">Victor <span class="s4-header-name-accent">Ajibade</span></div>
+        <div class="s4-header-title" style="white-space:normal;">Web Developer &nbsp;&middot;&nbsp; Virtual Assistant &nbsp;&middot;&nbsp; Data Analyst &nbsp;&middot;&nbsp; <span style="white-space:nowrap;">Graphic Designer</span> &nbsp;&middot;&nbsp; <span style="white-space:nowrap;">Content Writer</span></div>
+      </div>
+      <!-- Contact centre -->
+      <div class="s4-header-right" style="margin: 0 24px;">
+        <div class="s4-header-contact-item">connect@victorblessed.com</div>
+        <div class="s4-header-contact-item"><a href="https://victorblessed.com">victorblessed.com</a></div>
+        <div class="s4-header-contact-item">linkedin.com/in/victorblessed</div>
+      </div>
+      <!-- Photo far right -->
+      <img src="assets/img/IMG_3844.JPG-Photoroom.png" alt="Victor Ajibade" style="width:85px;height:85px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid #ddd;flex-shrink:0;" />
+    </div>
+
+    <div class="s4-body">
+
+      <!-- Main Column -->
+      <div class="s4-main">
+
+        <div class="s4-section">
+          <div class="s4-section-title">Profile</div>
+          <div class="s4-summary">
+            A quietly accomplished multi-disciplinary professional with over eight years of remote experience spanning web development, luxury vacation rental management, data analysis, graphic design, scriptwriting, and content strategy. Consistently trusted by clients across three continents for precision, creative depth, and the ability to operate with complete autonomy.
+          </div>
+        </div>
+
+        <div class="s4-section">
+          <div class="s4-section-title">Experience</div>
+
+          <div class="s4-exp-item">
+            <div class="s4-exp-header">
+              <div class="s4-exp-role">Virtual Assistant</div>
+              <div class="s4-exp-date">Mar 2023 – Present</div>
+            </div>
+            <div class="s4-exp-company">Everyday Luxury Vacation Rentals &nbsp;&middot;&nbsp; Dana Point, California</div>
+            <div class="s4-exp-desc">Full-cycle guest experience management for a luxury coastal short-term rental portfolio. Responsibilities span calendar management and channel optimization across Airbnb, VRBO, and Direct booking — alongside housekeeping coordination, dynamic pricing, and 5-star guest relations.</div>
+          </div>
+
+          <div class="s4-exp-item">
+            <div class="s4-exp-header">
+              <div class="s4-exp-role">Virtual Assistant</div>
+              <div class="s4-exp-date">Jun 2024 – Present</div>
+            </div>
+            <div class="s4-exp-company">Righteous Rentals &nbsp;&middot;&nbsp; Oceanside, California</div>
+            <div class="s4-exp-desc">Administrative operations, tenant relations, and SOP development for an expanding short-term rental business. Established structured onboarding documents, guest communication templates, and property turnover checklists.</div>
+          </div>
+
+          <div class="s4-exp-item">
+            <div class="s4-exp-header">
+              <div class="s4-exp-role">Frontend Developer</div>
+              <div class="s4-exp-date">Aug 2021 – Present</div>
+            </div>
+            <div class="s4-exp-company">OPENSAUCERY</div>
+            <div class="s4-exp-desc">Architecting and building responsive, accessible web applications using modern frontend technologies. Translates high-fidelity design mockups into production-ready, cross-browser-compatible interfaces.</div>
+          </div>
+
+          <div class="s4-exp-item">
+            <div class="s4-exp-header">
+              <div class="s4-exp-role">Scriptwriter</div>
+              <div class="s4-exp-date">Apr 2021 – Jun 2024</div>
+            </div>
+            <div class="s4-exp-company">Pak Filmmakers</div>
+            <div class="s4-exp-desc">Authored documentary and short-form film scripts over a three-year engagement, consistently meeting broadcast-quality standards and production deadlines.</div>
+          </div>
+
+          <div class="s4-exp-item">
+            <div class="s4-exp-header">
+              <div class="s4-exp-role">Whitepaper Developer &amp; Designer</div>
+              <div class="s4-exp-date">Oct 2021 – Feb 2023</div>
+            </div>
+            <div class="s4-exp-company">Dow7 Coin</div>
+            <div class="s4-exp-desc">Conceived, wrote, and designed the complete technical whitepaper for a blockchain cryptocurrency project — covering tokenomics architecture, investor documentation, and visual identity.</div>
+          </div>
+
+          <div class="s4-exp-item">
+            <div class="s4-exp-header">
+              <div class="s4-exp-role">Freelance Writer</div>
+              <div class="s4-exp-date">Mar 2016 – Present</div>
+            </div>
+            <div class="s4-exp-company">Fiverr</div>
+            <div class="s4-exp-desc">Nearly a decade of premium content creation — SEO articles, long-form blog posts, product copy, and brand narratives — for over 100 international clients across 20+ industries.</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Aside Column -->
+      <div class="s4-aside">
+
+        <div>
+          <div class="s4-aside-section-title">Education</div>
+          <div class="s4-edu-item">
+            <div class="s4-edu-degree">B.Ed. English Language</div>
+            <div class="s4-edu-school">Obafemi Awolowo University</div>
+            <div class="s4-edu-year">Ile-Ife, Nigeria &middot; 2017 – 2020</div>
+          </div>
+          <div class="s4-edu-item">
+            <div class="s4-edu-degree">High School Certificate (WAEC)</div>
+            <div class="s4-edu-school">Osogbo Grammar School</div>
+            <div class="s4-edu-year">Osogbo, Nigeria &middot; 2007 – 2010</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="s4-aside-section-title">Certifications</div>
+          <div class="s4-cert-item">
+            <div class="s4-cert-name">Virtual Assistant Programme</div>
+            <div class="s4-cert-issuer">ALX Africa &middot; Sep–Oct 2024</div>
+          </div>
+          <div class="s4-cert-item">
+            <div class="s4-cert-name">Complete Web Development Bootcamp</div>
+            <div class="s4-cert-issuer">Udemy &middot; Dr. Angela Yu &middot; 2023</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="s4-aside-section-title">Competencies</div>
+          <div class="s4-skill-item">HTML5 / CSS3 / JS <div class="s4-skill-dot"></div></div>
+          <div class="s4-skill-item">React.js <div class="s4-skill-dot"></div></div>
+          <div class="s4-skill-item">Figma / Adobe XD <div class="s4-skill-dot"></div></div>
+          <div class="s4-skill-item">Data Analysis <div class="s4-skill-dot"></div></div>
+          <div class="s4-skill-item">SEO Copywriting <div class="s4-skill-dot"></div></div>
+          <div class="s4-skill-item">Scriptwriting <div class="s4-skill-dot"></div></div>
+          <div class="s4-skill-item">Property Management <div class="s4-skill-dot"></div></div>
+          <div class="s4-skill-item">CRM / Admin Tools <div class="s4-skill-dot"></div></div>
+          <div class="s4-skill-item">Airbnb / VRBO Ops <div class="s4-skill-dot"></div></div>
+          <div class="s4-skill-item">Content Strategy <div class="s4-skill-dot"></div></div>
+          <div class="s4-skill-item">Graphic Design <div class="s4-skill-dot"></div></div>
+          <div class="s4-skill-item">Technical Writing <div class="s4-skill-dot"></div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
