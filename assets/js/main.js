@@ -41,6 +41,7 @@ function initTyped() {
       'Business &amp; Product Analyst',
       'Creative Freelancer',
       'Professional Content Writer',
+      'Content Writer, Proofreader &amp; Editor',
       'Graphic Designer',
       'Soundtrack Producer'
     ],
